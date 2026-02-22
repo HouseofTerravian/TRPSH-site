@@ -1,30 +1,31 @@
 /* ═══════════════════════════════════════════════
    TRPSH — The Right Path Starts Here
-   Style Sheet
-   Color System:
-     --navy      #0D1F5C  Deep patriotic blue (dark sections)
-     --gold      #DC2626  Red (CTAs, accents)
-     --teal      #22C55E  Light green (secondary accent)
-     --cream     #EDF1FB  Blue-tinted light background
-     --charcoal  #1E2A3B  Dark text
-   Logo letters: T=#3B82F6 R=#EF4444 P=#FFFFFF S=#EF4444 H=#4ADE80
+   Style Sheet — LOCKED 5-COLOR PALETTE
+   ─────────────────────────────────────────────
+   Primary Navy:      #0A1F44  Dark UI surfaces
+   Structured Blue:   #142E6F  Secondary surfaces
+   Crimson CTA:       #E11D48  All main CTAs (hover: #BE123C)
+   Success Emerald:   #10B981  Financial/success highlights
+   Light Surface:     #F1F5F9  Light section backgrounds
+   ─────────────────────────────────────────────
+   Logo letters: T=#10B981 R=#E11D48 P=#FFFFFF S=#E11D48 H=#10B981
 ═══════════════════════════════════════════════ */
 
 /* ─── Reset & Base ─── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --navy:       #0D1F5C;
-  --navy-mid:   #1A3080;
-  --navy-light: #2563EB;
-  --gold:       #DC2626;
-  --gold-light: #EF4444;
-  --gold-dark:  #B91C1C;
-  --teal:       #22C55E;
-  --teal-dark:  #16A34A;
-  --cream:      #EDF1FB;
+  --navy:       #0A1F44;
+  --navy-mid:   #142E6F;
+  --navy-light: #142E6F;
+  --gold:       #E11D48;
+  --gold-light: #E11D48;
+  --gold-dark:  #BE123C;
+  --teal:       #10B981;
+  --teal-dark:  #059669;
+  --cream:      #F1F5F9;
   --white:      #FFFFFF;
-  --charcoal:   #1E2A3B;
+  --charcoal:   #0A1F44;
   --gray-700:   #374151;
   --gray-500:   #6B7280;
   --gray-300:   #D1D5DB;
@@ -96,14 +97,14 @@ p  { color: var(--gray-700); }
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--gold);
-  background: rgba(220,38,38,0.1);
-  border: 1px solid rgba(220,38,38,0.25);
+  background: rgba(225,29,72,0.1);
+  border: 1px solid rgba(225,29,72,0.25);
   border-radius: 100px;
   padding: 6px 16px;
   margin-bottom: 20px;
 }
-.section-label--light { color: #FCA5A5; background: rgba(239,68,68,0.12); border-color: rgba(239,68,68,0.2); }
-.section-label--teal  { color: var(--teal); background: rgba(34,197,94,0.1); border-color: rgba(34,197,94,0.2); }
+.section-label--light { color: rgba(255,255,255,0.85); background: rgba(225,29,72,0.12); border-color: rgba(225,29,72,0.2); }
+.section-label--teal  { color: var(--teal); background: rgba(16,185,129,0.1); border-color: rgba(16,185,129,0.2); }
 
 .section-title { margin-bottom: 20px; }
 .section-title--white { color: var(--white); }
@@ -129,27 +130,27 @@ p  { color: var(--gray-700); }
 .btn--full { width: 100%; justify-content: center; }
 
 .btn--gold {
-  background: var(--teal);
+  background: var(--gold);
   color: var(--white);
-  border-color: var(--teal);
+  border-color: var(--gold);
 }
 .btn--gold:hover {
-  background: var(--teal-dark);
-  border-color: var(--teal-dark);
+  background: var(--gold-dark);
+  border-color: var(--gold-dark);
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(34,197,94,0.35);
+  box-shadow: 0 8px 24px rgba(225,29,72,0.35);
 }
 
 .btn--navy {
-  background: var(--navy);
+  background: var(--gold);
   color: var(--white);
-  border-color: var(--navy);
+  border-color: var(--gold);
 }
 .btn--navy:hover {
-  background: var(--navy-mid);
-  border-color: var(--navy-mid);
+  background: var(--gold-dark);
+  border-color: var(--gold-dark);
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(11,29,58,0.25);
+  box-shadow: 0 8px 24px rgba(225,29,72,0.25);
 }
 
 .btn--outline-white {
@@ -186,7 +187,7 @@ p  { color: var(--gray-700); }
   transition: background var(--transition), box-shadow var(--transition), padding var(--transition);
 }
 .nav.scrolled {
-  background: rgba(11,29,58,0.97);
+  background: rgba(10,31,68,0.97);
   backdrop-filter: blur(16px);
   box-shadow: 0 2px 20px rgba(0,0,0,0.2);
 }
@@ -283,9 +284,9 @@ p  { color: var(--gray-700); }
   position: absolute;
   inset: 0;
   background-image:
-    radial-gradient(circle at 20% 50%, rgba(34,197,94,0.12) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(220,38,38,0.09) 0%, transparent 45%),
-    radial-gradient(circle at 60% 80%, rgba(59,130,246,0.08) 0%, transparent 40%);
+    radial-gradient(circle at 20% 50%, rgba(16,185,129,0.10) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(225,29,72,0.08) 0%, transparent 45%),
+    radial-gradient(circle at 60% 80%, rgba(20,46,111,0.20) 0%, transparent 40%);
   pointer-events: none;
 }
 .hero__bg-pattern::after {
@@ -314,8 +315,8 @@ p  { color: var(--gray-700); }
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #FCA5A5;
-  border: 1px solid rgba(239,68,68,0.45);
+  color: rgba(255,255,255,0.85);
+  border: 1px solid rgba(225,29,72,0.45);
   border-radius: 100px;
   padding: 7px 16px;
   margin-bottom: 24px;
@@ -390,7 +391,7 @@ p  { color: var(--gray-700); }
 }
 .book__spine {
   width: 28px;
-  background: linear-gradient(180deg, #991B1B 0%, #DC2626 50%, #991B1B 100%);
+  background: linear-gradient(180deg, #BE123C 0%, #E11D48 50%, #BE123C 100%);
   flex-shrink: 0;
 }
 .book__front {
@@ -400,7 +401,7 @@ p  { color: var(--gray-700); }
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  border: 1px solid rgba(245,166,35,0.2);
+  border: 1px solid rgba(225,29,72,0.15);
   border-left: none;
   position: relative;
 }
@@ -629,7 +630,7 @@ p  { color: var(--gray-700); }
 }
 .solution-card--featured {
   border: 2px solid var(--gold);
-  box-shadow: 0 0 0 4px rgba(220,38,38,0.1);
+  box-shadow: 0 0 0 4px rgba(225,29,72,0.12);
 }
 .solution-card--featured::before {
   content: 'Most Popular';
@@ -708,8 +709,8 @@ p  { color: var(--gray-700); }
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(circle at 0% 100%, rgba(34,197,94,0.12) 0%, transparent 50%),
-    radial-gradient(circle at 100% 0%, rgba(220,38,38,0.09) 0%, transparent 45%);
+    radial-gradient(circle at 0% 100%, rgba(16,185,129,0.10) 0%, transparent 50%),
+    radial-gradient(circle at 100% 0%, rgba(225,29,72,0.08) 0%, transparent 45%);
   pointer-events: none;
 }
 .counselors__inner {
@@ -830,7 +831,7 @@ p  { color: var(--gray-700); }
 }
 .module-card:hover {
   border-color: var(--gold);
-  box-shadow: 0 4px 20px rgba(220,38,38,0.12);
+  box-shadow: 0 4px 20px rgba(225,29,72,0.12);
 }
 .module-card__num {
   font-family: 'Montserrat', sans-serif;
@@ -870,7 +871,7 @@ p  { color: var(--gray-700); }
 
 /* Banking card visual */
 .banking-card {
-  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 50%, #0F2560 100%);
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 50%, #0A1F44 100%);
   border-radius: 16px;
   padding: 28px;
   position: relative;
@@ -885,7 +886,7 @@ p  { color: var(--gray-700); }
   top: -40px; right: -40px;
   width: 150px; height: 150px;
   border-radius: 50%;
-  background: rgba(245,166,35,0.1);
+  background: rgba(16,185,129,0.08);
 }
 .banking-card__header {
   display: flex;
@@ -901,7 +902,7 @@ p  { color: var(--gray-700); }
 }
 .banking-card__chip {
   width: 36px; height: 28px;
-  background: linear-gradient(135deg, #d4a843, #f5c842);
+  background: linear-gradient(135deg, #059669, #10B981);
   border-radius: 5px;
   margin-bottom: 16px;
 }
@@ -975,14 +976,14 @@ p  { color: var(--gray-700); }
 }
 .book-3d__spine {
   width: 32px;
-  background: linear-gradient(180deg, #991B1B 0%, var(--gold) 50%, #991B1B 100%);
+  background: linear-gradient(180deg, #BE123C 0%, var(--gold) 50%, #BE123C 100%);
   border-radius: 4px 0 0 4px;
   flex-shrink: 0;
 }
 .book-3d__front {
   flex: 1;
   background: linear-gradient(160deg, var(--navy-mid), var(--navy));
-  border: 2px solid rgba(245,166,35,0.2);
+  border: 2px solid rgba(225,29,72,0.15);
   border-left: none;
   border-radius: 0 8px 8px 0;
   padding: 28px 24px;
@@ -1106,11 +1107,11 @@ p  { color: var(--gray-700); }
 .form-group textarea:focus {
   outline: none;
   border-color: var(--navy);
-  box-shadow: 0 0 0 3px rgba(11,29,58,0.1);
+  box-shadow: 0 0 0 3px rgba(10,31,68,0.12);
 }
 .form-group input.error,
 .form-group select.error,
-.form-group textarea.error { border-color: #e53e3e; }
+.form-group textarea.error { border-color: var(--gold); }
 .form__note {
   text-align: center;
   font-size: 0.8rem;
@@ -1128,7 +1129,7 @@ p  { color: var(--gray-700); }
 }
 .testimonials .section-label,
 .testimonials .section-title { color: var(--white); }
-.testimonials .section-label { color: var(--gold); background: rgba(245,166,35,0.12); }
+.testimonials .section-label { color: var(--gold); background: rgba(225,29,72,0.12); }
 .testimonials .container { text-align: center; margin-bottom: 60px; }
 
 .testimonials__track-wrapper { position: relative; }
@@ -1208,7 +1209,7 @@ p  { color: var(--gray-700); }
   font-size: 0.78rem;
   flex-shrink: 0;
 }
-.t-avatar--navy { background: var(--navy-light); color: var(--gold); border: 1px solid rgba(245,166,35,0.3); }
+.t-avatar--navy { background: var(--navy-mid); color: var(--teal); border: 1px solid rgba(16,185,129,0.3); }
 .t-avatar--teal  { background: var(--teal-dark); color: var(--white); }
 .t-avatar--gold  { background: var(--gold); color: var(--navy); }
 .t-card__author strong { display: block; color: var(--white); font-family: 'Montserrat', sans-serif; font-size: 0.875rem; }
@@ -1294,7 +1295,7 @@ p  { color: var(--gray-700); }
 /* ════════════════════════════════════════════
    FOOTER
 ════════════════════════════════════════════ */
-.footer { background: #060D2A; }
+.footer { background: #060E22; }
 
 .footer__inner {
   display: grid;
@@ -1413,11 +1414,11 @@ p  { color: var(--gray-700); }
 }
 
 /* ════════════════════════════════════════════
-   LOGO LETTER COLORS
-   T=blue  R=red  P=white  S=red  H=light green
+   LOGO LETTER COLORS — LOCKED PALETTE ONLY
+   T=Emerald  R=Crimson  P=White  S=Crimson  H=Emerald
 ════════════════════════════════════════════ */
-.lc-t { color: #3B82F6; }
-.lc-r { color: #EF4444; }
+.lc-t { color: #10B981; }
+.lc-r { color: #E11D48; }
 .lc-p { color: #FFFFFF; }
-.lc-s { color: #EF4444; }
-.lc-h { color: #4ADE80; }
+.lc-s { color: #E11D48; }
+.lc-h { color: #10B981; }
