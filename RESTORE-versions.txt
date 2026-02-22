@@ -9,6 +9,7 @@ VERSIONS
   v1.0-launch   Feb 22, 2026   Original launch (navy/gold/teal)
   v2.0          Feb 22, 2026   Red/white/blue/green retheme + green CTAs
   v3.0          Feb 22, 2026   Locked 5-color palette (navy/blue/crimson/emerald/light)
+  v4.0          Feb 22, 2026   Authority upgrade (depth, hierarchy, logo, premium detail)
 
 
 ══════════════════════════════════════════════════════════════
@@ -110,7 +111,7 @@ OPTION C — DOWNLOAD FROM GITHUB
 
 
 ══════════════════════════════════════════════════════════════
-v3.0 — Locked 5-Color Palette  ← CURRENT VERSION
+v3.0 — Locked 5-Color Palette
 ══════════════════════════════════════════════════════════════
 
 Colors:
@@ -159,6 +160,56 @@ OPTION C — DOWNLOAD FROM GITHUB
 
 1. Go to: https://github.com/HouseofTerravian/TRPSH-site
 2. Click the branch/tag dropdown → Tags → v3.0
+3. Click green "Code" button → Download ZIP
+
+
+══════════════════════════════════════════════════════════════
+v4.0 — Authority Upgrade  ← CURRENT VERSION
+══════════════════════════════════════════════════════════════
+
+Colors: Same locked 5-color palette as v3.0
+
+What changed:
+  Logo         54px compass icon, 1.7rem wordmark (larger/bolder)
+  Hero         Diagonal gradient bg, radial highlight, grid overlay
+  Stats        +15% number size, emerald + indicators, wider spacing
+  Cards        Depth shadows, 200ms hover lift (-4px)
+  CTAs         150ms transitions, crimson = action only (not decoration)
+  Testimonials Ultra-subtle border (0.05 opacity)
+  Spacing      120px section padding, 100px footer top
+  Typography   Body text #0F172A
+  Copy         Removed "not a prayer" from hero subtitle
+
+
+──────────────────────────────────────────────────────────────
+OPTION A — VERCEL DASHBOARD (Easiest. No code. ~30 seconds.)
+──────────────────────────────────────────────────────────────
+
+1. Go to: https://vercel.com
+2. Log in → click project: trpsh-site
+3. Click the "Deployments" tab
+4. Find the most recent deployment (top of the list)
+5. Click the "..." menu → "Promote to Production"
+6. Done. Live in ~10 seconds.
+
+
+──────────────────────────────────────────────────────────────
+OPTION B — COMMAND LINE
+──────────────────────────────────────────────────────────────
+
+  cd "C:\Users\chude\AppData\Local\Temp\TRPSH-site"
+  git checkout v4.0
+  git checkout -b restore-v4
+  git push origin restore-v4
+  vercel --prod
+
+
+──────────────────────────────────────────────────────────────
+OPTION C — DOWNLOAD FROM GITHUB
+──────────────────────────────────────────────────────────────
+
+1. Go to: https://github.com/HouseofTerravian/TRPSH-site
+2. Click the branch/tag dropdown → Tags → v4.0
 3. Click green "Code" button → Download ZIP
 
 
