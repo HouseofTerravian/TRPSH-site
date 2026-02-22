@@ -1,0 +1,177 @@
+═══════════════════════════════════════════════════════════════
+TRPSH-SITE — VERSION HISTORY & RESTORE GUIDE
+Site: https://www.therightpathstartshere.com
+Repo: https://github.com/HouseofTerravian/TRPSH-site
+═══════════════════════════════════════════════════════════════
+
+VERSIONS
+────────
+  v1.0-launch   Feb 22, 2026   Original launch (navy/gold/teal)
+  v2.0          Feb 22, 2026   Red/white/blue/green retheme + green CTAs
+  v3.0          Feb 22, 2026   Locked 5-color palette (navy/blue/crimson/emerald/light)
+
+
+══════════════════════════════════════════════════════════════
+v1.0-LAUNCH — Original Site
+══════════════════════════════════════════════════════════════
+
+Colors:
+  Navy  (dark sections):   #0B1D3A
+  Gold  (CTAs/accents):    #F5A623
+  Teal  (secondary):       #00A896
+  Cream (backgrounds):     #FDF8F2
+
+Logo: TRPSH in solid white
+
+
+──────────────────────────────────────────────────────────────
+OPTION A — VERCEL DASHBOARD (Easiest. No code. ~30 seconds.)
+──────────────────────────────────────────────────────────────
+
+1. Go to: https://vercel.com
+2. Log in → click project: trpsh-site
+3. Click the "Deployments" tab
+4. Find the deployment from February 22, 2026 labeled v1.0-launch
+   (scroll to the bottom of the list — it's the oldest one)
+5. Click the "..." menu → "Promote to Production"
+6. Done. Live in ~10 seconds.
+
+
+──────────────────────────────────────────────────────────────
+OPTION B — COMMAND LINE
+──────────────────────────────────────────────────────────────
+
+  cd "C:\Users\chude\AppData\Local\Temp\TRPSH-site"
+  git checkout v1.0-launch
+  git checkout -b restore-v1
+  git push origin restore-v1
+  vercel --prod
+
+
+──────────────────────────────────────────────────────────────
+OPTION C — DOWNLOAD FROM GITHUB
+──────────────────────────────────────────────────────────────
+
+1. Go to: https://github.com/HouseofTerravian/TRPSH-site
+2. Click the branch/tag dropdown → Tags → v1.0-launch
+3. Click green "Code" button → Download ZIP
+
+
+══════════════════════════════════════════════════════════════
+v2.0 — Red/White/Blue/Green Retheme
+══════════════════════════════════════════════════════════════
+
+Colors:
+  Deep Blue  (dark sections):  #0D1F5C
+  Red        (accents/labels): #DC2626
+  Green      (CTAs/buttons):   #22C55E
+  Light Blue (backgrounds):    #EDF1FB
+
+Logo letters:
+  T = Blue  #3B82F6
+  R = Red   #EF4444
+  P = White #FFFFFF
+  S = Red   #EF4444
+  H = Green #4ADE80
+
+Compass SVG: blue ring, red north arrow, green south, white center dot
+
+
+──────────────────────────────────────────────────────────────
+OPTION A — VERCEL DASHBOARD (Easiest. No code. ~30 seconds.)
+──────────────────────────────────────────────────────────────
+
+1. Go to: https://vercel.com
+2. Log in → click project: trpsh-site
+3. Click the "Deployments" tab
+4. Find the most recent deployment (top of the list)
+5. Click the "..." menu → "Promote to Production"
+6. Done. Live in ~10 seconds.
+
+
+──────────────────────────────────────────────────────────────
+OPTION B — COMMAND LINE
+──────────────────────────────────────────────────────────────
+
+  cd "C:\Users\chude\AppData\Local\Temp\TRPSH-site"
+  git checkout v2.0
+  git checkout -b restore-v2
+  git push origin restore-v2
+  vercel --prod
+
+
+──────────────────────────────────────────────────────────────
+OPTION C — DOWNLOAD FROM GITHUB
+──────────────────────────────────────────────────────────────
+
+1. Go to: https://github.com/HouseofTerravian/TRPSH-site
+2. Click the branch/tag dropdown → Tags → v2.0
+3. Click green "Code" button → Download ZIP
+
+
+══════════════════════════════════════════════════════════════
+v3.0 — Locked 5-Color Palette  ← CURRENT VERSION
+══════════════════════════════════════════════════════════════
+
+Colors:
+  Primary Navy     (dark sections):  #0A1F44
+  Structured Blue  (secondary bg):   #142E6F
+  Crimson CTA      (all buttons):    #E11D48  (hover: #BE123C)
+  Success Emerald  (highlights):     #10B981
+  Light Surface    (light sections): #F1F5F9
+
+Logo letters:
+  T = Emerald  #10B981
+  R = Crimson  #E11D48
+  P = White    #FFFFFF
+  S = Crimson  #E11D48
+  H = Emerald  #10B981
+
+Compass SVG: emerald ring, crimson north arrow, white center dot
+
+
+──────────────────────────────────────────────────────────────
+OPTION A — VERCEL DASHBOARD (Easiest. No code. ~30 seconds.)
+──────────────────────────────────────────────────────────────
+
+1. Go to: https://vercel.com
+2. Log in → click project: trpsh-site
+3. Click the "Deployments" tab
+4. Find the most recent deployment (top of the list)
+5. Click the "..." menu → "Promote to Production"
+6. Done. Live in ~10 seconds.
+
+
+──────────────────────────────────────────────────────────────
+OPTION B — COMMAND LINE
+──────────────────────────────────────────────────────────────
+
+  cd "C:\Users\chude\AppData\Local\Temp\TRPSH-site"
+  git checkout v3.0
+  git checkout -b restore-v3
+  git push origin restore-v3
+  vercel --prod
+
+
+──────────────────────────────────────────────────────────────
+OPTION C — DOWNLOAD FROM GITHUB
+──────────────────────────────────────────────────────────────
+
+1. Go to: https://github.com/HouseofTerravian/TRPSH-site
+2. Click the branch/tag dropdown → Tags → v3.0
+3. Click green "Code" button → Download ZIP
+
+
+═══════════════════════════════════════════════════════════════
+FILES IN EVERY VERSION
+═══════════════════════════════════════════════════════════════
+
+  index.html        Main page (all sections)
+  css/style.css     All styles (colors, layout, responsive)
+  js/main.js        Animations, forms, scroll behavior
+
+
+═══════════════════════════════════════════════════════════════
+All tags are permanently saved on GitHub and will never
+disappear no matter how many future changes are made.
+═══════════════════════════════════════════════════════════════
