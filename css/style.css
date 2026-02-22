@@ -129,15 +129,15 @@ p  { color: var(--gray-700); }
 .btn--full { width: 100%; justify-content: center; }
 
 .btn--gold {
-  background: var(--gold);
-  color: var(--navy);
-  border-color: var(--gold);
+  background: var(--teal);
+  color: var(--white);
+  border-color: var(--teal);
 }
 .btn--gold:hover {
-  background: var(--gold-light);
-  border-color: var(--gold-light);
+  background: var(--teal-dark);
+  border-color: var(--teal-dark);
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(220,38,38,0.35);
+  box-shadow: 0 8px 24px rgba(34,197,94,0.35);
 }
 
 .btn--navy {
