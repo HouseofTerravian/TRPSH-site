@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Take the TRPSH 100-question life-readiness quiz. Find out what you know — and what nobody taught you.">
-  <title>The Quiz — 100 Questions | TRPSH</title>
+  <meta name="description" content="You passed The Test. Now learn the science of attraction, persuasion, and human connection. 100 research-backed questions about courtship signals, body language, and social dynamics.">
+  <title>Test 2 — The Signals | TRPSH</title>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     /* ═══════════════════════════════════════════════
-       TRPSH Quiz Experience — Self-Contained Styles
+       TRPSH Quiz 2 Experience — Self-Contained Styles
     ═══════════════════════════════════════════════ */
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -146,9 +146,9 @@
       font-weight: 700;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--gold);
-      background: rgba(225,29,72,0.08);
-      border: 1px solid rgba(225,29,72,0.2);
+      color: var(--teal);
+      background: rgba(16,185,129,0.08);
+      border: 1px solid rgba(16,185,129,0.2);
       border-radius: 100px;
       padding: 6px 18px;
       margin-bottom: 28px;
@@ -231,6 +231,16 @@
       transform: translateY(-2px);
       box-shadow: 0 8px 24px rgba(225,29,72,0.35);
     }
+    .btn--teal {
+      background: transparent;
+      color: var(--teal);
+      border-color: var(--teal);
+    }
+    .btn--teal:hover {
+      background: rgba(16,185,129,0.08);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(16,185,129,0.25);
+    }
     .btn--outline {
       background: transparent;
       color: var(--charcoal);
@@ -241,6 +251,31 @@
       transform: translateY(-2px);
     }
     .btn--xl { padding: 18px 48px; font-size: 1.1rem; }
+    .btn--lg { padding: 15px 36px; font-size: 0.95rem; }
+
+    /* ═══════════════════════════════════════════════
+       GATE SCREEN — Unlocked Badge
+    ═══════════════════════════════════════════════ */
+    .gate-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--teal);
+      background: rgba(16,185,129,0.08);
+      border: 1px solid rgba(16,185,129,0.2);
+      border-radius: 100px;
+      padding: 6px 18px;
+      margin-bottom: 24px;
+    }
+    .gate-badge svg {
+      width: 14px;
+      height: 14px;
+    }
 
     /* ═══════════════════════════════════════════════
        QUIZ SCREEN
@@ -651,20 +686,23 @@
         </svg>
         TRPSH
       </a>
-      <a href="index.html" class="quiz-nav__exit">Exit Quiz</a>
+      <a href="index.html" class="quiz-nav__exit">Exit Test 2</a>
     </div>
   </nav>
 
   <!-- ═══════════════════════════════════════════════
-       ACCESS GATE
+       ACCESS GATE — Requires Test 1 Passed
   ═══════════════════════════════════════════════ -->
   <div id="gateScreen" class="screen active visible">
     <div class="quiz-container start" style="text-align: center; padding: 120px 24px;">
-      <div class="start__badge" style="margin-bottom: 24px;">Access Required</div>
-      <h1 class="start__title" style="margin-bottom: 16px;">This Test Requires <span class="text-gold">Purchase</span></h1>
-      <p class="start__sub" style="max-width: 520px; margin: 0 auto 40px;">The TRPSH Life Readiness Test is a premium experience — 100 research-backed questions that prepare your grad for the real world. Purchase access to begin.</p>
-      <a href="quiz-landing.html#buy" class="btn btn--gold btn--xl">Get Access — $100</a>
-      <p style="color: var(--gray-500); font-size: 0.85rem; margin-top: 20px;">Already purchased? <a href="quiz-landing.html#buy" style="color: var(--gold); text-decoration: underline;">Contact support</a> if you're having trouble accessing The Test.</p>
+      <div class="gate-badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        Test 2 Locked
+      </div>
+      <h1 class="start__title" style="margin-bottom: 16px;">You Unlocked <span class="text-gold">Something.</span></h1>
+      <p class="start__sub" style="max-width: 520px; margin: 0 auto 40px;">Test 2 is a reward for passing Test 1. If you haven't taken The Test yet, start there.</p>
+      <a href="quiz.html" class="btn btn--gold btn--xl">Take Test 1 First</a>
+      <p style="color: var(--gray-500); font-size: 0.85rem; margin-top: 20px;">Already passed? If something went wrong, <a href="mailto:support@therightpathstartshere.com" style="color: var(--teal); text-decoration: underline;">contact support</a>.</p>
     </div>
   </div>
 
@@ -673,39 +711,31 @@
   ═══════════════════════════════════════════════ -->
   <div id="startScreen" class="screen">
     <div class="quiz-container start">
-      <div class="start__badge">Life Readiness Quiz</div>
-      <h1 class="start__title">100 Questions. One Score.<br>How Ready <span class="text-gold">Are You?</span></h1>
-      <p class="start__sub">This isn't a school test. It's a life test. 100 multiple-choice questions covering the things nobody taught you — but everyone expects you to know.</p>
+      <div class="start__badge">You Unlocked This</div>
+      <h1 class="start__title">100 Questions. The Science of <span class="text-gold">Signals.</span></h1>
+      <p class="start__sub">You passed the life readiness test. Now learn what nobody teaches about attraction, persuasion, body language, and human connection — backed by decades of research.</p>
 
       <div class="start__categories">
         <h3>What You'll Be Tested On</h3>
         <div class="start__cat-item">
-          <span class="start__cat-name">Interpersonal &amp; Social</span>
-          <span class="start__cat-count">30 questions</span>
+          <span class="start__cat-name">Nonverbal Courtship Signals</span>
+          <span class="start__cat-count">28 questions</span>
         </div>
         <div class="start__cat-item">
-          <span class="start__cat-name">Health, Insurance &amp; Taxes</span>
-          <span class="start__cat-count">15 questions</span>
+          <span class="start__cat-name">Relationship Psychology</span>
+          <span class="start__cat-count">21 questions</span>
         </div>
         <div class="start__cat-item">
-          <span class="start__cat-name">Career &amp; Money</span>
-          <span class="start__cat-count">15 questions</span>
+          <span class="start__cat-name">Attraction Science</span>
+          <span class="start__cat-count">19 questions</span>
         </div>
         <div class="start__cat-item">
-          <span class="start__cat-name">Housing &amp; Tenant Rights</span>
-          <span class="start__cat-count">10 questions</span>
+          <span class="start__cat-name">Body Language &amp; Microexpressions</span>
+          <span class="start__cat-count">19 questions</span>
         </div>
         <div class="start__cat-item">
-          <span class="start__cat-name">Banking &amp; Financial Systems</span>
-          <span class="start__cat-count">10 questions</span>
-        </div>
-        <div class="start__cat-item">
-          <span class="start__cat-name">Credit</span>
-          <span class="start__cat-count">10 questions</span>
-        </div>
-        <div class="start__cat-item">
-          <span class="start__cat-name">Legal Rights</span>
-          <span class="start__cat-count">10 questions</span>
+          <span class="start__cat-name">Social Influence &amp; Persuasion</span>
+          <span class="start__cat-count">13 questions</span>
         </div>
       </div>
 
@@ -714,7 +744,7 @@
         Estimated time: 20 &ndash; 30 minutes
       </p>
 
-      <button id="beginBtn" class="btn btn--gold btn--xl">Begin The Quiz</button>
+      <button id="beginBtn" class="btn btn--gold btn--xl">Begin Test 2</button>
     </div>
   </div>
 
@@ -795,36 +825,20 @@
 
       <!-- CTAs -->
       <div class="results__ctas">
-        <button class="btn btn--gold btn--xl" id="retakeBtn">Retake Quiz</button>
-        <button class="btn btn--outline btn--xl" id="shareBtn">Share Your Score</button>
+        <button class="btn btn--gold btn--xl" id="shareBtn">Share Your Score</button>
+        <a href="index.html" class="btn btn--outline btn--xl">Back to Home</a>
+        <a href="index.html#course" class="btn btn--teal btn--xl">Explore The Course</a>
       </div>
       <p class="results__share-toast" id="shareToast">Score copied to clipboard!</p>
 
-      <!-- Test 2 Unlock Banner (hidden by default, shown when score >= 70) -->
-      <div id="test2Unlock" style="display: none; margin-top: 48px; padding: 40px; background: linear-gradient(135deg, #0A1F44 0%, #142E6F 100%); border-radius: 20px; text-align: center; border: 1px solid rgba(16,185,129,0.3); position: relative; overflow: hidden;">
-        <div style="position: absolute; inset: 0; background: radial-gradient(circle at 30% 50%, rgba(16,185,129,0.1) 0%, transparent 50%); pointer-events: none;"></div>
-        <div style="position: relative; z-index: 1;">
-          <div style="display: inline-flex; align-items: center; gap: 8px; font-family: 'Montserrat', sans-serif; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal); background: rgba(16,185,129,0.12); border: 1px solid rgba(16,185,129,0.25); border-radius: 100px; padding: 6px 18px; margin-bottom: 20px;">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-            Unlocked
-          </div>
-          <h3 style="font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1.5rem; color: #FFFFFF; margin-bottom: 12px;">You Passed. You Unlocked <span style="color: var(--gold);">Test 2.</span></h3>
-          <p style="color: rgba(255,255,255,0.7); font-size: 1rem; line-height: 1.7; max-width: 480px; margin: 0 auto 28px;">100 new questions. The science of attraction, persuasion, body language, and human connection — backed by decades of research. This is the test nobody expects.</p>
-          <a href="quiz-2.html" class="btn btn--gold btn--xl" style="display: inline-flex;">
-            Start Test 2
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-        </div>
-      </div>
-
       <!-- Next Steps -->
       <div class="results__next-steps" style="margin-top: 48px; padding: 40px; background: var(--cream); border-radius: var(--radius-lg); text-align: center;">
-        <h3 style="margin-bottom: 8px; color: var(--charcoal);">What's Next?</h3>
-        <p style="margin-bottom: 28px; color: var(--gray-500); font-size: 1rem;">Your score is just the starting point. Here's how to get on the right path.</p>
+        <h3 style="margin-bottom: 8px; color: var(--charcoal);">You've Completed Both Tests.</h3>
+        <p style="margin-bottom: 28px; color: var(--gray-500); font-size: 1rem;">You now know more about life readiness AND human connection than most adults. Share your results and challenge your friends.</p>
         <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
-          <a href="index.html#course" class="btn btn--gold btn--lg">Explore The Course</a>
-          <a href="index.html#book" class="btn btn--outline btn--lg" style="border-color: var(--navy); color: var(--navy);">Get Free Book</a>
-          <a href="index.html#counselors" class="btn btn--outline btn--lg" style="border-color: var(--teal); color: var(--teal);">For Counselors</a>
+          <button class="btn btn--gold btn--lg" id="shareBtn2">Share Your Score</button>
+          <a href="index.html" class="btn btn--outline btn--lg" style="border-color: var(--navy); color: var(--navy);">Back to Home</a>
+          <a href="index.html#course" class="btn btn--teal btn--lg">Explore The Course</a>
         </div>
       </div>
 
@@ -847,21 +861,13 @@
   <!-- ═══════════════════════════════════════════════
        SCRIPTS
   ═══════════════════════════════════════════════ -->
-  <script src="js/quiz-data.js"></script>
+  <script src="js/quiz-data-2.js"></script>
   <script>
   (function() {
     'use strict';
 
-    /* ─── Access Gate ─── */
-    /* Check URL params for access token (Payhip redirect) */
-    const params = new URLSearchParams(window.location.search);
-    if (params.get('access') === 'granted') {
-      localStorage.setItem('trpsh_access', 'true');
-      /* Clean the URL */
-      window.history.replaceState({}, '', window.location.pathname);
-    }
-
-    const hasAccess = localStorage.getItem('trpsh_access') === 'true';
+    /* ─── Access Gate — Requires Test 1 Passed ─── */
+    const hasAccess = localStorage.getItem('trpsh_test1_passed') === 'true';
     const gateScreen = document.getElementById('gateScreen');
     const startScreenEl = document.getElementById('startScreen');
 
@@ -909,8 +915,8 @@
     const scoreTitleNum   = $('scoreTitleNum');
     const verdictText     = $('verdictText');
     const breakdownContainer = $('breakdownContainer');
-    const retakeBtn       = $('retakeBtn');
     const shareBtn        = $('shareBtn');
+    const shareBtn2       = $('shareBtn2');
     const shareToast      = $('shareToast');
 
     /* ─── Screen transitions ─── */
@@ -928,7 +934,7 @@
 
     /* ─── Initialize category totals ─── */
     function initCategories() {
-      QUIZ_DATA.forEach(q => {
+      QUIZ_DATA_2.forEach(q => {
         if (!state.categoryTotals[q.category]) {
           state.categoryTotals[q.category] = 0;
           state.categoryScores[q.category] = 0;
@@ -939,7 +945,7 @@
 
     /* ─── Render question ─── */
     function renderQuestion() {
-      const q = QUIZ_DATA[state.currentQuestion];
+      const q = QUIZ_DATA_2[state.currentQuestion];
       const num = state.currentQuestion + 1;
       const pct = Math.round((state.currentQuestion / 100) * 100);
 
@@ -984,7 +990,7 @@
       if (state.answered) return;
       state.answered = true;
 
-      const q = QUIZ_DATA[state.currentQuestion];
+      const q = QUIZ_DATA_2[state.currentQuestion];
       const isCorrect = selectedIndex === q.correct;
       const buttons = choicesContainer.querySelectorAll('.choice-btn');
 
@@ -1079,29 +1085,20 @@
       let verdict = '';
       let verdictClass = '';
       if (score >= 90) {
-        verdict = "You're ready. Seriously.";
+        verdict = "You read people like a book. Seriously impressive.";
         verdictClass = 'results__verdict--high';
       } else if (score >= 70) {
-        verdict = "You're ahead of most — but there are gaps.";
+        verdict = "You're more perceptive than most — but there's more to learn.";
         verdictClass = 'results__verdict--high';
       } else if (score >= 50) {
-        verdict = "You know more than you think, but there's work to do.";
+        verdict = "You're picking up on some signals, but missing others.";
         verdictClass = 'results__verdict--mid';
       } else {
-        verdict = "This is exactly why this quiz exists. No shame — just awareness.";
+        verdict = "Most people are exactly here. Now you know what you didn't know.";
         verdictClass = 'results__verdict--mid';
       }
       verdictText.textContent = verdict;
       verdictText.className = 'results__verdict ' + verdictClass;
-
-      // Unlock Test 2 if passed (70+)
-      var unlockBanner = document.getElementById('test2Unlock');
-      if (score >= 70) {
-        localStorage.setItem('trpsh_test1_passed', 'true');
-        if (unlockBanner) unlockBanner.style.display = 'block';
-      } else {
-        if (unlockBanner) unlockBanner.style.display = 'none';
-      }
 
       // Category breakdown
       const rows = breakdownContainer.querySelectorAll('.breakdown-row');
@@ -1140,27 +1137,9 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    /* ─── Retake ─── */
-    function retakeQuiz() {
-      state.currentQuestion = 0;
-      state.score = 0;
-      state.answers = [];
-      state.answered = false;
-      Object.keys(state.categoryScores).forEach(k => state.categoryScores[k] = 0);
-
-      // Reset ring
-      scoreRing.style.strokeDashoffset = 565.48;
-      scoreRing.style.stroke = 'var(--gold)';
-
-      nextBtn.innerHTML = 'Next Question &rarr;';
-      showScreen(quizScreen);
-      renderQuestion();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
     /* ─── Share ─── */
     function shareScore() {
-      const text = 'I scored ' + state.score + '/100 on the TRPSH Life Readiness Quiz. How ready are you? Take it: https://www.therightpathstartshere.com/quiz.html';
+      const text = 'I scored ' + state.score + '/100 on the TRPSH Signals Test — the science of attraction, persuasion, and connection. Think you can beat me?';
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(text).then(() => {
           shareToast.classList.add('show');
@@ -1211,8 +1190,8 @@
     });
 
     nextBtn.addEventListener('click', nextQuestion);
-    retakeBtn.addEventListener('click', retakeQuiz);
     shareBtn.addEventListener('click', shareScore);
+    shareBtn2.addEventListener('click', shareScore);
 
   })();
   </script>
