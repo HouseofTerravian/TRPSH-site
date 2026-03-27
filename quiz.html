@@ -1,0 +1,1149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Take the TRPSH 100-question life-readiness quiz. Find out what you know — and what nobody taught you.">
+  <title>The Quiz — 100 Questions | TRPSH</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* ═══════════════════════════════════════════════
+       TRPSH Quiz Experience — Self-Contained Styles
+    ═══════════════════════════════════════════════ */
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:       #0A1F44;
+      --navy-mid:   #142E6F;
+      --gold:       #E11D48;
+      --gold-dark:  #BE123C;
+      --teal:       #10B981;
+      --teal-dark:  #059669;
+      --cream:      #F1F5F9;
+      --white:      #FFFFFF;
+      --charcoal:   #0A1F44;
+      --gray-700:   #374151;
+      --gray-500:   #6B7280;
+      --gray-300:   #D1D5DB;
+      --gray-100:   #F3F4F6;
+      --border:     #E5E7EB;
+      --shadow-sm:  0 1px 3px rgba(0,0,0,.08), 0 1px 2px rgba(0,0,0,.06);
+      --shadow-md:  0 4px 16px rgba(0,0,0,.10);
+      --shadow-lg:  0 12px 40px rgba(0,0,0,.14);
+      --radius:     12px;
+      --radius-lg:  20px;
+      --radius-xl:  28px;
+      --transition: 0.25s cubic-bezier(0.4,0,0.2,1);
+      --green-bg:   rgba(16,185,129,0.12);
+      --green-border: #10B981;
+      --red-bg:     rgba(225,29,72,0.10);
+      --red-border: #E11D48;
+    }
+
+    html { scroll-behavior: smooth; font-size: 16px; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: #0F172A;
+      background: var(--white);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+    }
+
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+    button { cursor: pointer; border: none; background: none; font-family: inherit; }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      line-height: 1.15;
+      color: var(--charcoal);
+    }
+    h1 { font-size: clamp(2.2rem, 5vw, 3.5rem); }
+    h2 { font-size: clamp(1.8rem, 3.5vw, 2.75rem); }
+    h3 { font-size: clamp(1.25rem, 2vw, 1.6rem); font-weight: 700; }
+    p  { color: var(--gray-700); }
+
+    .text-gold { color: var(--gold); }
+
+    /* ─── Navigation ─── */
+    .quiz-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(10,31,68,0.97);
+      backdrop-filter: blur(16px);
+      box-shadow: 0 2px 20px rgba(0,0,0,0.2);
+      padding: 0 24px;
+    }
+    .quiz-nav__inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+    }
+    .quiz-nav__logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--white);
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 1.1rem;
+      letter-spacing: 0.04em;
+    }
+    .quiz-nav__logo svg { width: 32px; height: 32px; }
+    .quiz-nav__exit {
+      color: rgba(255,255,255,0.7);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: color 0.15s ease;
+    }
+    .quiz-nav__exit:hover { color: var(--white); }
+
+    /* ─── Shared Container ─── */
+    .quiz-container {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ─── Screens ─── */
+    .screen {
+      display: none;
+      opacity: 0;
+      transition: opacity 0.35s ease;
+    }
+    .screen.active {
+      display: block;
+    }
+    .screen.visible {
+      opacity: 1;
+    }
+
+    /* ═══════════════════════════════════════════════
+       START SCREEN
+    ═══════════════════════════════════════════════ */
+    .start {
+      padding: 80px 0 100px;
+      text-align: center;
+    }
+    .start__badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      background: rgba(225,29,72,0.08);
+      border: 1px solid rgba(225,29,72,0.2);
+      border-radius: 100px;
+      padding: 6px 18px;
+      margin-bottom: 28px;
+    }
+    .start__title {
+      margin-bottom: 20px;
+    }
+    .start__sub {
+      font-size: 1.1rem;
+      max-width: 620px;
+      margin: 0 auto 48px;
+      color: var(--gray-500);
+      line-height: 1.75;
+    }
+
+    .start__categories {
+      max-width: 520px;
+      margin: 0 auto 48px;
+      text-align: left;
+    }
+    .start__categories h3 {
+      font-size: 1rem;
+      margin-bottom: 16px;
+      color: var(--charcoal);
+    }
+    .start__cat-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+    .start__cat-item:last-child { border-bottom: none; }
+    .start__cat-name { color: var(--gray-700); }
+    .start__cat-count {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      color: var(--charcoal);
+      font-size: 0.85rem;
+      background: var(--cream);
+      border-radius: 100px;
+      padding: 2px 12px;
+    }
+
+    .start__time {
+      font-size: 0.9rem;
+      color: var(--gray-500);
+      margin-bottom: 32px;
+    }
+    .start__time svg {
+      display: inline-block;
+      vertical-align: -3px;
+      margin-right: 6px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      letter-spacing: 0.02em;
+      border-radius: 100px;
+      padding: 15px 36px;
+      border: 2px solid transparent;
+      transition: background-color 150ms ease, border-color 150ms ease, transform 150ms ease, box-shadow 150ms ease;
+      white-space: nowrap;
+    }
+    .btn--gold {
+      background: var(--gold);
+      color: var(--white);
+      border-color: var(--gold);
+    }
+    .btn--gold:hover {
+      background: var(--gold-dark);
+      border-color: var(--gold-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(225,29,72,0.35);
+    }
+    .btn--outline {
+      background: transparent;
+      color: var(--charcoal);
+      border-color: var(--gray-300);
+    }
+    .btn--outline:hover {
+      border-color: var(--charcoal);
+      transform: translateY(-2px);
+    }
+    .btn--xl { padding: 18px 48px; font-size: 1.1rem; }
+
+    /* ═══════════════════════════════════════════════
+       QUIZ SCREEN
+    ═══════════════════════════════════════════════ */
+    .quiz {
+      padding: 40px 0 80px;
+    }
+
+    /* Progress */
+    .progress-wrap {
+      margin-bottom: 32px;
+    }
+    .progress-label {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+    .progress-label__text {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: var(--charcoal);
+    }
+    .progress-label__count {
+      font-size: 0.8rem;
+      color: var(--gray-500);
+      font-weight: 500;
+    }
+    .progress-bar {
+      width: 100%;
+      height: 6px;
+      background: var(--gray-100);
+      border-radius: 100px;
+      overflow: hidden;
+    }
+    .progress-bar__fill {
+      height: 100%;
+      background: var(--gold);
+      border-radius: 100px;
+      transition: width 0.4s cubic-bezier(0.4,0,0.2,1);
+      width: 0%;
+    }
+
+    /* Category badge */
+    .category-badge {
+      display: inline-block;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--white);
+      background: var(--teal);
+      border-radius: 100px;
+      padding: 5px 14px;
+      margin-bottom: 20px;
+    }
+
+    /* Question */
+    .question-text {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: clamp(1.15rem, 2.5vw, 1.45rem);
+      line-height: 1.4;
+      color: var(--charcoal);
+      margin-bottom: 28px;
+    }
+
+    /* Answer choices */
+    .choices {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 0;
+    }
+    .choice-btn {
+      width: 100%;
+      text-align: left;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 500;
+      line-height: 1.55;
+      color: var(--charcoal);
+      background: var(--white);
+      border: 2px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px 20px;
+      min-height: 54px;
+      transition: border-color 0.15s ease, background-color 0.15s ease, transform 0.1s ease;
+      cursor: pointer;
+    }
+    .choice-btn:hover:not(.choice-btn--disabled) {
+      border-color: var(--gray-300);
+      background: var(--gray-100);
+    }
+    .choice-btn:focus-visible {
+      outline: 2px solid var(--gold);
+      outline-offset: 2px;
+    }
+    .choice-btn--correct {
+      border-color: var(--green-border) !important;
+      background: var(--green-bg) !important;
+    }
+    .choice-btn--wrong {
+      border-color: var(--red-border) !important;
+      background: var(--red-bg) !important;
+    }
+    .choice-btn--disabled {
+      cursor: default;
+      pointer-events: none;
+    }
+
+    /* Explanation card */
+    .explanation {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.45s cubic-bezier(0.4,0,0.2,1), opacity 0.35s ease, margin-top 0.35s ease;
+      opacity: 0;
+      margin-top: 0;
+    }
+    .explanation.show {
+      max-height: 600px;
+      opacity: 1;
+      margin-top: 24px;
+    }
+    .explanation__card {
+      background: var(--cream);
+      border-radius: var(--radius);
+      padding: 24px;
+      border-left: 4px solid var(--teal);
+    }
+    .explanation__card--wrong {
+      border-left-color: var(--gold);
+    }
+    .explanation__header {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 1rem;
+      margin-bottom: 8px;
+    }
+    .explanation__header--correct { color: var(--teal); }
+    .explanation__header--wrong { color: var(--gold); }
+    .explanation__text {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: var(--gray-700);
+      margin-bottom: 10px;
+    }
+    .explanation__research {
+      font-size: 0.82rem;
+      font-style: italic;
+      color: var(--gray-500);
+      line-height: 1.6;
+    }
+
+    /* Next button */
+    .next-wrap {
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: max-height 0.35s ease, opacity 0.3s ease, margin-top 0.3s ease;
+      margin-top: 0;
+    }
+    .next-wrap.show {
+      max-height: 80px;
+      opacity: 1;
+      margin-top: 20px;
+    }
+    .next-wrap .btn { width: 100%; }
+
+    /* Ad space */
+    .ad-space {
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: max-height 0.4s ease 0.1s, opacity 0.35s ease 0.15s, margin-top 0.35s ease;
+      margin-top: 0;
+    }
+    .ad-space.show {
+      max-height: 400px;
+      opacity: 1;
+      margin-top: 32px;
+    }
+    .ad-space__inner {
+      border-top: 1px solid var(--border);
+      padding-top: 24px;
+    }
+    .ad-space__box {
+      min-height: 200px;
+      border: 2px dashed var(--gray-300);
+      border-radius: var(--radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 32px 24px;
+      text-align: center;
+    }
+    .ad-space__placeholder {
+      font-size: 0.88rem;
+      font-style: italic;
+      color: var(--gray-500);
+      line-height: 1.7;
+      max-width: 400px;
+    }
+
+    /* ═══════════════════════════════════════════════
+       RESULTS SCREEN
+    ═══════════════════════════════════════════════ */
+    .results {
+      padding: 60px 0 100px;
+      text-align: center;
+    }
+
+    .results__score-ring {
+      position: relative;
+      width: 200px;
+      height: 200px;
+      margin: 0 auto 24px;
+    }
+    .results__score-ring svg {
+      width: 200px;
+      height: 200px;
+      transform: rotate(-90deg);
+    }
+    .results__score-ring circle {
+      fill: none;
+      stroke-width: 10;
+    }
+    .results__ring-bg { stroke: var(--gray-100); }
+    .results__ring-fill {
+      stroke: var(--gold);
+      stroke-linecap: round;
+      stroke-dasharray: 565.48;
+      stroke-dashoffset: 565.48;
+      transition: stroke-dashoffset 1.5s cubic-bezier(0.4,0,0.2,1), stroke 0.3s ease;
+    }
+    .results__score-number {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    .results__score-number strong {
+      display: block;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 2.8rem;
+      color: var(--charcoal);
+      line-height: 1;
+    }
+    .results__score-number span {
+      font-size: 0.85rem;
+      color: var(--gray-500);
+      font-weight: 500;
+    }
+
+    .results__title {
+      margin-bottom: 12px;
+    }
+    .results__verdict {
+      font-size: 1.15rem;
+      font-weight: 600;
+      line-height: 1.6;
+      margin-bottom: 48px;
+    }
+    .results__verdict--high { color: var(--teal); }
+    .results__verdict--mid { color: var(--gold); }
+
+    /* Category breakdown */
+    .results__breakdown {
+      text-align: left;
+      max-width: 600px;
+      margin: 0 auto 48px;
+    }
+    .results__breakdown h3 {
+      font-size: 1.05rem;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .breakdown-row {
+      margin-bottom: 16px;
+    }
+    .breakdown-row__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 6px;
+    }
+    .breakdown-row__name {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--charcoal);
+    }
+    .breakdown-row__score {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--gray-500);
+    }
+    .breakdown-row__bar {
+      width: 100%;
+      height: 8px;
+      background: var(--gray-100);
+      border-radius: 100px;
+      overflow: hidden;
+    }
+    .breakdown-row__fill {
+      height: 100%;
+      border-radius: 100px;
+      background: var(--teal);
+      transition: width 1s cubic-bezier(0.4,0,0.2,1);
+      width: 0%;
+    }
+    .breakdown-row__fill--low { background: var(--gold); }
+
+    /* CTAs */
+    .results__ctas {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 48px;
+    }
+
+    .results__share-toast {
+      display: none;
+      font-size: 0.85rem;
+      color: var(--teal);
+      font-weight: 600;
+      margin-top: 12px;
+    }
+    .results__share-toast.show {
+      display: block;
+    }
+
+    /* Results ad */
+    .results__ad {
+      margin-top: 48px;
+    }
+
+    /* ─── Results Footer ─── */
+    .results-footer {
+      margin-top: 80px;
+      padding: 32px 0;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+    .results-footer p {
+      font-size: 0.82rem;
+      color: var(--gray-500);
+    }
+    .results-footer a {
+      color: var(--gold);
+      font-weight: 600;
+    }
+    .results-footer a:hover { text-decoration: underline; }
+
+    /* ═══════════════════════════════════════════════
+       RESPONSIVE
+    ═══════════════════════════════════════════════ */
+    @media (max-width: 640px) {
+      .start { padding: 48px 0 64px; }
+      .quiz { padding: 28px 0 60px; }
+      .results { padding: 40px 0 60px; }
+
+      .start__categories { max-width: 100%; }
+
+      .choice-btn {
+        padding: 14px 16px;
+        font-size: 0.9rem;
+      }
+
+      .explanation__card { padding: 18px; }
+
+      .results__score-ring { width: 160px; height: 160px; }
+      .results__score-ring svg { width: 160px; height: 160px; }
+      .results__score-number strong { font-size: 2.2rem; }
+
+      .results__ctas {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .results__ctas .btn { width: 100%; }
+    }
+
+    /* ─── Focus & Accessibility ─── */
+    :focus-visible {
+      outline: 2px solid var(--gold);
+      outline-offset: 2px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════════
+       NAVIGATION (Persistent)
+  ═══════════════════════════════════════════════ -->
+  <nav class="quiz-nav">
+    <div class="quiz-nav__inner">
+      <a href="index.html" class="quiz-nav__logo" aria-label="TRPSH Home">
+        <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="22" cy="22" r="20" stroke="#10B981" stroke-width="2"/>
+          <polygon points="22,4 26,20 22,24 18,20" fill="#E11D48"/>
+          <polygon points="22,40 26,24 22,20 18,24" fill="rgba(16,185,129,0.4)"/>
+          <circle cx="22" cy="22" r="3" fill="#FFFFFF"/>
+          <line x1="8" y1="22" x2="36" y2="22" stroke="#10B981" stroke-width="1" stroke-dasharray="3 3" opacity="0.5"/>
+        </svg>
+        TRPSH
+      </a>
+      <a href="index.html" class="quiz-nav__exit">Exit Quiz</a>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════════
+       START SCREEN
+  ═══════════════════════════════════════════════ -->
+  <div id="startScreen" class="screen active visible">
+    <div class="quiz-container start">
+      <div class="start__badge">Life Readiness Quiz</div>
+      <h1 class="start__title">100 Questions. One Score.<br>How Ready <span class="text-gold">Are You?</span></h1>
+      <p class="start__sub">This isn't a school test. It's a life test. 100 multiple-choice questions covering the things nobody taught you — but everyone expects you to know.</p>
+
+      <div class="start__categories">
+        <h3>What You'll Be Tested On</h3>
+        <div class="start__cat-item">
+          <span class="start__cat-name">Interpersonal &amp; Social</span>
+          <span class="start__cat-count">30 questions</span>
+        </div>
+        <div class="start__cat-item">
+          <span class="start__cat-name">Health, Insurance &amp; Taxes</span>
+          <span class="start__cat-count">15 questions</span>
+        </div>
+        <div class="start__cat-item">
+          <span class="start__cat-name">Career &amp; Money</span>
+          <span class="start__cat-count">15 questions</span>
+        </div>
+        <div class="start__cat-item">
+          <span class="start__cat-name">Housing &amp; Tenant Rights</span>
+          <span class="start__cat-count">10 questions</span>
+        </div>
+        <div class="start__cat-item">
+          <span class="start__cat-name">Banking &amp; Financial Systems</span>
+          <span class="start__cat-count">10 questions</span>
+        </div>
+        <div class="start__cat-item">
+          <span class="start__cat-name">Credit</span>
+          <span class="start__cat-count">10 questions</span>
+        </div>
+        <div class="start__cat-item">
+          <span class="start__cat-name">Legal Rights</span>
+          <span class="start__cat-count">10 questions</span>
+        </div>
+      </div>
+
+      <p class="start__time">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Estimated time: 20 &ndash; 30 minutes
+      </p>
+
+      <button id="beginBtn" class="btn btn--gold btn--xl">Begin The Quiz</button>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════
+       QUIZ SCREEN
+  ═══════════════════════════════════════════════ -->
+  <div id="quizScreen" class="screen">
+    <div class="quiz-container quiz">
+      <!-- Progress -->
+      <div class="progress-wrap">
+        <div class="progress-label">
+          <span class="progress-label__text" id="progressText">Question 1 of 100</span>
+          <span class="progress-label__count" id="progressPercent">0%</span>
+        </div>
+        <div class="progress-bar">
+          <div class="progress-bar__fill" id="progressFill"></div>
+        </div>
+      </div>
+
+      <!-- Category -->
+      <div class="category-badge" id="categoryBadge"></div>
+
+      <!-- Question -->
+      <div class="question-text" id="questionText"></div>
+
+      <!-- Choices -->
+      <div class="choices" id="choicesContainer" role="group" aria-label="Answer choices"></div>
+
+      <!-- Explanation -->
+      <div class="explanation" id="explanationWrap">
+        <div class="explanation__card" id="explanationCard">
+          <div class="explanation__header" id="explanationHeader"></div>
+          <p class="explanation__text" id="explanationText"></p>
+          <p class="explanation__research" id="explanationResearch"></p>
+        </div>
+      </div>
+
+      <!-- Next button -->
+      <div class="next-wrap" id="nextWrap">
+        <button class="btn btn--gold" id="nextBtn">Next Question &rarr;</button>
+      </div>
+
+      <!-- Ad space -->
+      <div class="ad-space" id="adSpace">
+        <div class="ad-space__inner">
+          <div class="ad-space__box" id="adBox" data-ad-category="">
+            <p class="ad-space__placeholder">We don't have an advertiser in this space yet who solves this pain point. But should you ever need help in this area, check back — hopefully we'll have the resource you need.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════
+       RESULTS SCREEN
+  ═══════════════════════════════════════════════ -->
+  <div id="resultsScreen" class="screen">
+    <div class="quiz-container results">
+      <!-- Score ring -->
+      <div class="results__score-ring">
+        <svg viewBox="0 0 200 200">
+          <circle class="results__ring-bg" cx="100" cy="100" r="90"/>
+          <circle class="results__ring-fill" id="scoreRing" cx="100" cy="100" r="90"/>
+        </svg>
+        <div class="results__score-number">
+          <strong id="scoreDisplay">0</strong>
+          <span>out of 100</span>
+        </div>
+      </div>
+
+      <h2 class="results__title">You scored <span class="text-gold" id="scoreTitleNum">0</span>/100</h2>
+      <p class="results__verdict" id="verdictText"></p>
+
+      <!-- Category breakdown -->
+      <div class="results__breakdown" id="breakdownContainer">
+        <h3>Score by Category</h3>
+      </div>
+
+      <!-- CTAs -->
+      <div class="results__ctas">
+        <button class="btn btn--gold btn--xl" id="retakeBtn">Retake Quiz</button>
+        <button class="btn btn--outline btn--xl" id="shareBtn">Share Your Score</button>
+      </div>
+      <p class="results__share-toast" id="shareToast">Score copied to clipboard!</p>
+
+      <!-- Results ad -->
+      <div class="results__ad">
+        <div class="ad-space__inner">
+          <div class="ad-space__box" data-ad-category="general">
+            <p class="ad-space__placeholder">We don't have an advertiser in this space yet who solves this pain point. But should you ever need help in this area, check back — hopefully we'll have the resource you need.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer (only on results) -->
+      <div class="results-footer">
+        <p>&copy; 2026 TRPSH &mdash; The Right Path Starts Here. <a href="index.html">Back to Home</a></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════
+       SCRIPTS
+  ═══════════════════════════════════════════════ -->
+  <script src="js/quiz-data.js"></script>
+  <script>
+  (function() {
+    'use strict';
+
+    /* ─── State ─── */
+    const state = {
+      currentQuestion: 0,
+      score: 0,
+      answers: [],
+      categoryScores: {},
+      categoryTotals: {},
+      answered: false
+    };
+
+    /* ─── DOM refs ─── */
+    const $ = id => document.getElementById(id);
+
+    const startScreen     = $('startScreen');
+    const quizScreen      = $('quizScreen');
+    const resultsScreen   = $('resultsScreen');
+    const beginBtn        = $('beginBtn');
+    const progressText    = $('progressText');
+    const progressPercent = $('progressPercent');
+    const progressFill    = $('progressFill');
+    const categoryBadge   = $('categoryBadge');
+    const questionText    = $('questionText');
+    const choicesContainer= $('choicesContainer');
+    const explanationWrap = $('explanationWrap');
+    const explanationCard = $('explanationCard');
+    const explanationHeader = $('explanationHeader');
+    const explanationText = $('explanationText');
+    const explanationResearch = $('explanationResearch');
+    const nextWrap        = $('nextWrap');
+    const nextBtn         = $('nextBtn');
+    const adSpace         = $('adSpace');
+    const adBox           = $('adBox');
+    const scoreRing       = $('scoreRing');
+    const scoreDisplay    = $('scoreDisplay');
+    const scoreTitleNum   = $('scoreTitleNum');
+    const verdictText     = $('verdictText');
+    const breakdownContainer = $('breakdownContainer');
+    const retakeBtn       = $('retakeBtn');
+    const shareBtn        = $('shareBtn');
+    const shareToast      = $('shareToast');
+
+    /* ─── Screen transitions ─── */
+    function showScreen(screen) {
+      [startScreen, quizScreen, resultsScreen].forEach(s => {
+        s.classList.remove('active', 'visible');
+      });
+      screen.classList.add('active');
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          screen.classList.add('visible');
+        });
+      });
+    }
+
+    /* ─── Initialize category totals ─── */
+    function initCategories() {
+      QUIZ_DATA.forEach(q => {
+        if (!state.categoryTotals[q.category]) {
+          state.categoryTotals[q.category] = 0;
+          state.categoryScores[q.category] = 0;
+        }
+        state.categoryTotals[q.category]++;
+      });
+    }
+
+    /* ─── Render question ─── */
+    function renderQuestion() {
+      const q = QUIZ_DATA[state.currentQuestion];
+      const num = state.currentQuestion + 1;
+      const pct = Math.round((state.currentQuestion / 100) * 100);
+
+      state.answered = false;
+
+      // Progress
+      progressText.textContent = 'Question ' + num + ' of 100';
+      progressPercent.textContent = pct + '%';
+      progressFill.style.width = pct + '%';
+
+      // Category
+      categoryBadge.textContent = q.category;
+
+      // Question
+      questionText.textContent = q.question;
+
+      // Choices
+      choicesContainer.innerHTML = '';
+      q.choices.forEach((choice, i) => {
+        const btn = document.createElement('button');
+        btn.className = 'choice-btn';
+        btn.textContent = choice;
+        btn.setAttribute('role', 'button');
+        btn.setAttribute('aria-label', choice);
+        btn.setAttribute('data-index', i);
+        btn.addEventListener('click', () => handleAnswer(i));
+        choicesContainer.appendChild(btn);
+      });
+
+      // Hide explanation, next, ad
+      explanationWrap.classList.remove('show');
+      nextWrap.classList.remove('show');
+      adSpace.classList.remove('show');
+
+      // Reset explanation card classes
+      explanationCard.className = 'explanation__card';
+      explanationHeader.className = 'explanation__header';
+    }
+
+    /* ─── Handle answer ─── */
+    function handleAnswer(selectedIndex) {
+      if (state.answered) return;
+      state.answered = true;
+
+      const q = QUIZ_DATA[state.currentQuestion];
+      const isCorrect = selectedIndex === q.correct;
+      const buttons = choicesContainer.querySelectorAll('.choice-btn');
+
+      // Record
+      state.answers.push({ questionId: q.id, selected: selectedIndex, correct: isCorrect });
+      if (isCorrect) {
+        state.score++;
+        state.categoryScores[q.category]++;
+      }
+
+      // Highlight answers
+      buttons.forEach((btn, i) => {
+        btn.classList.add('choice-btn--disabled');
+        if (i === q.correct) {
+          btn.classList.add('choice-btn--correct');
+        }
+        if (i === selectedIndex && !isCorrect) {
+          btn.classList.add('choice-btn--wrong');
+        }
+      });
+
+      // Explanation
+      if (isCorrect) {
+        explanationHeader.textContent = 'Correct!';
+        explanationHeader.classList.add('explanation__header--correct');
+      } else {
+        explanationHeader.textContent = 'Not quite.';
+        explanationHeader.classList.add('explanation__header--wrong');
+        explanationCard.classList.add('explanation__card--wrong');
+      }
+      explanationText.textContent = q.explanation;
+      explanationResearch.textContent = q.research;
+
+      // Show explanation, next, ad
+      explanationWrap.classList.add('show');
+      setTimeout(() => nextWrap.classList.add('show'), 150);
+      setTimeout(() => {
+        adBox.setAttribute('data-ad-category', q.adCategory);
+        adSpace.classList.add('show');
+      }, 250);
+
+      // Update next button text for last question
+      if (state.currentQuestion === 99) {
+        nextBtn.innerHTML = 'See My Results &rarr;';
+      }
+    }
+
+    /* ─── Next question ─── */
+    function nextQuestion() {
+      state.currentQuestion++;
+      if (state.currentQuestion >= 100) {
+        showResults();
+      } else {
+        renderQuestion();
+      }
+    }
+
+    /* ─── Show results ─── */
+    function showResults() {
+      showScreen(resultsScreen);
+
+      const score = state.score;
+
+      // Animate score ring
+      const circumference = 2 * Math.PI * 90; // ~565.48
+      const offset = circumference - (score / 100) * circumference;
+      setTimeout(() => {
+        scoreRing.style.strokeDashoffset = offset;
+        if (score >= 70) {
+          scoreRing.style.stroke = 'var(--teal)';
+        } else {
+          scoreRing.style.stroke = 'var(--gold)';
+        }
+      }, 100);
+
+      // Animate number
+      let current = 0;
+      const duration = 1200;
+      const start = performance.now();
+      function animateNumber(now) {
+        const elapsed = now - start;
+        const progress = Math.min(elapsed / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        current = Math.round(eased * score);
+        scoreDisplay.textContent = current;
+        scoreTitleNum.textContent = current;
+        if (progress < 1) requestAnimationFrame(animateNumber);
+      }
+      requestAnimationFrame(animateNumber);
+
+      // Verdict
+      let verdict = '';
+      let verdictClass = '';
+      if (score >= 90) {
+        verdict = "You're ready. Seriously.";
+        verdictClass = 'results__verdict--high';
+      } else if (score >= 70) {
+        verdict = "You're ahead of most — but there are gaps.";
+        verdictClass = 'results__verdict--high';
+      } else if (score >= 50) {
+        verdict = "You know more than you think, but there's work to do.";
+        verdictClass = 'results__verdict--mid';
+      } else {
+        verdict = "This is exactly why this quiz exists. No shame — just awareness.";
+        verdictClass = 'results__verdict--mid';
+      }
+      verdictText.textContent = verdict;
+      verdictText.className = 'results__verdict ' + verdictClass;
+
+      // Category breakdown
+      const rows = breakdownContainer.querySelectorAll('.breakdown-row');
+      rows.forEach(r => r.remove());
+
+      // Sort categories by total count descending
+      const sortedCats = Object.keys(state.categoryTotals).sort(
+        (a, b) => state.categoryTotals[b] - state.categoryTotals[a]
+      );
+
+      sortedCats.forEach(cat => {
+        const correct = state.categoryScores[cat];
+        const total = state.categoryTotals[cat];
+        const pct = Math.round((correct / total) * 100);
+        const isLow = pct < 50;
+
+        const row = document.createElement('div');
+        row.className = 'breakdown-row';
+        row.innerHTML =
+          '<div class="breakdown-row__header">' +
+            '<span class="breakdown-row__name">' + cat + '</span>' +
+            '<span class="breakdown-row__score">' + correct + '/' + total + '</span>' +
+          '</div>' +
+          '<div class="breakdown-row__bar">' +
+            '<div class="breakdown-row__fill' + (isLow ? ' breakdown-row__fill--low' : '') + '"></div>' +
+          '</div>';
+        breakdownContainer.appendChild(row);
+
+        // Animate bar
+        setTimeout(() => {
+          row.querySelector('.breakdown-row__fill').style.width = pct + '%';
+        }, 300);
+      });
+
+      // Scroll to top of results
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    /* ─── Retake ─── */
+    function retakeQuiz() {
+      state.currentQuestion = 0;
+      state.score = 0;
+      state.answers = [];
+      state.answered = false;
+      Object.keys(state.categoryScores).forEach(k => state.categoryScores[k] = 0);
+
+      // Reset ring
+      scoreRing.style.strokeDashoffset = 565.48;
+      scoreRing.style.stroke = 'var(--gold)';
+
+      nextBtn.innerHTML = 'Next Question &rarr;';
+      showScreen(quizScreen);
+      renderQuestion();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    /* ─── Share ─── */
+    function shareScore() {
+      const text = 'I scored ' + state.score + '/100 on the TRPSH Life Readiness Quiz. How ready are you? Take it: https://www.therightpathstartshere.com/quiz.html';
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(() => {
+          shareToast.classList.add('show');
+          setTimeout(() => shareToast.classList.remove('show'), 3000);
+        });
+      } else {
+        // Fallback
+        const textarea = document.createElement('textarea');
+        textarea.value = text;
+        textarea.style.position = 'fixed';
+        textarea.style.opacity = '0';
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textarea);
+        shareToast.classList.add('show');
+        setTimeout(() => shareToast.classList.remove('show'), 3000);
+      }
+    }
+
+    /* ─── Keyboard support ─── */
+    document.addEventListener('keydown', function(e) {
+      if (!quizScreen.classList.contains('active')) return;
+
+      // Number keys 1-4 to select answer
+      if (!state.answered) {
+        const num = parseInt(e.key);
+        if (num >= 1 && num <= 4) {
+          const buttons = choicesContainer.querySelectorAll('.choice-btn');
+          if (buttons[num - 1]) {
+            handleAnswer(num - 1);
+          }
+        }
+      }
+
+      // Enter to go next
+      if (state.answered && (e.key === 'Enter' || e.key === ' ')) {
+        e.preventDefault();
+        nextQuestion();
+      }
+    });
+
+    /* ─── Event listeners ─── */
+    beginBtn.addEventListener('click', function() {
+      initCategories();
+      showScreen(quizScreen);
+      renderQuestion();
+    });
+
+    nextBtn.addEventListener('click', nextQuestion);
+    retakeBtn.addEventListener('click', retakeQuiz);
+    shareBtn.addEventListener('click', shareScore);
+
+  })();
+  </script>
+</body>
+</html>
