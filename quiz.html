@@ -656,9 +656,22 @@
   </nav>
 
   <!-- ═══════════════════════════════════════════════
+       ACCESS GATE
+  ═══════════════════════════════════════════════ -->
+  <div id="gateScreen" class="screen active visible">
+    <div class="quiz-container start" style="text-align: center; padding: 120px 24px;">
+      <div class="start__badge" style="margin-bottom: 24px;">Access Required</div>
+      <h1 class="start__title" style="margin-bottom: 16px;">This Test Requires <span class="text-gold">Purchase</span></h1>
+      <p class="start__sub" style="max-width: 520px; margin: 0 auto 40px;">The TRPSH Life Readiness Test is a premium experience — 100 research-backed questions that prepare your grad for the real world. Purchase access to begin.</p>
+      <a href="quiz-landing.html#buy" class="btn btn--gold btn--xl">Get Access — $100</a>
+      <p style="color: var(--gray-500); font-size: 0.85rem; margin-top: 20px;">Already purchased? <a href="quiz-landing.html#buy" style="color: var(--gold); text-decoration: underline;">Contact support</a> if you're having trouble accessing The Test.</p>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════
        START SCREEN
   ═══════════════════════════════════════════════ -->
-  <div id="startScreen" class="screen active visible">
+  <div id="startScreen" class="screen">
     <div class="quiz-container start">
       <div class="start__badge">Life Readiness Quiz</div>
       <h1 class="start__title">100 Questions. One Score.<br>How Ready <span class="text-gold">Are You?</span></h1>
@@ -821,6 +834,26 @@
   <script>
   (function() {
     'use strict';
+
+    /* ─── Access Gate ─── */
+    /* Check URL params for access token (Payhip redirect) */
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('access') === 'granted') {
+      localStorage.setItem('trpsh_access', 'true');
+      /* Clean the URL */
+      window.history.replaceState({}, '', window.location.pathname);
+    }
+
+    const hasAccess = localStorage.getItem('trpsh_access') === 'true';
+    const gateScreen = document.getElementById('gateScreen');
+    const startScreenEl = document.getElementById('startScreen');
+
+    if (hasAccess) {
+      gateScreen.style.display = 'none';
+      gateScreen.classList.remove('active', 'visible');
+      startScreenEl.classList.add('active', 'visible');
+    }
+    /* If no access, gate stays visible, start screen stays hidden */
 
     /* ─── State ─── */
     const state = {
