@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Privacy Policy for TRPSH — The Right Path Starts Here. Learn how we collect, use, and protect your personal information.">
+  <title>Privacy Policy | TRPSH</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:       #0A1F44;
+      --navy-mid:   #142E6F;
+      --gold:       #E11D48;
+      --gold-dark:  #BE123C;
+      --teal:       #10B981;
+      --teal-dark:  #059669;
+      --cream:      #F1F5F9;
+      --white:      #FFFFFF;
+      --charcoal:   #0A1F44;
+      --gray-700:   #374151;
+      --gray-500:   #6B7280;
+      --gray-300:   #D1D5DB;
+      --gray-100:   #F3F4F6;
+      --border:     #E5E7EB;
+      --shadow-sm:  0 1px 3px rgba(0,0,0,.08), 0 1px 2px rgba(0,0,0,.06);
+      --shadow-md:  0 4px 16px rgba(0,0,0,.10);
+      --shadow-lg:  0 12px 40px rgba(0,0,0,.14);
+      --radius:     12px;
+      --radius-lg:  20px;
+      --radius-xl:  28px;
+      --transition: 0.25s cubic-bezier(0.4,0,0.2,1);
+    }
+
+    html { scroll-behavior: smooth; font-size: 16px; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: #0F172A;
+      background: var(--white);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img, svg { display: block; max-width: 100%; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+    button { cursor: pointer; border: none; background: none; font-family: inherit; }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      line-height: 1.15;
+      color: var(--charcoal);
+    }
+    h1 { font-size: clamp(2.2rem, 5vw, 3.5rem); }
+    h2 { font-size: clamp(1.8rem, 3.5vw, 2.75rem); }
+    h3 { font-size: clamp(1.25rem, 2vw, 1.6rem); font-weight: 700; }
+    h4 { font-size: 1.1rem; font-weight: 700; }
+    p  { color: var(--gray-700); }
+
+    .text-gold { color: var(--gold); }
+    .text-teal { color: var(--teal); }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ─── Animate on Scroll ─── */
+    [data-animate] {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    [data-animate].in-view {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* ════════════════════════════════════════════
+       NAVIGATION
+    ════════════════════════════════════════════ */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      padding: 0;
+      background: rgba(10,31,68,0.97);
+      backdrop-filter: blur(16px);
+      box-shadow: 0 2px 20px rgba(0,0,0,0.2);
+      transition: background var(--transition), box-shadow var(--transition);
+    }
+
+    .nav__inner {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      height: 72px;
+    }
+
+    .nav__logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+
+    .logo-icon { width: 38px; height: 38px; }
+
+    .logo-text { display: flex; flex-direction: column; }
+
+    .logo-wordmark {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 1.35rem;
+      letter-spacing: 0.08em;
+      line-height: 1;
+    }
+    .lc-t { color: #10B981; }
+    .lc-r { color: #E11D48; }
+    .lc-p { color: #FFFFFF; }
+    .lc-s { color: #E11D48; }
+    .lc-h { color: #10B981; }
+
+    .logo-tagline {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.6rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      color: rgba(255,255,255,0.6);
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+
+    .nav__links {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-left: auto;
+    }
+
+    .nav__link {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: rgba(255,255,255,0.8);
+      padding: 8px 14px;
+      border-radius: 8px;
+      transition: color var(--transition), background var(--transition);
+    }
+    .nav__link:hover {
+      color: var(--white);
+      background: rgba(255,255,255,0.08);
+    }
+
+    .nav__hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      padding: 8px;
+      margin-left: auto;
+    }
+    .nav__hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--white);
+      border-radius: 2px;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+    .nav__hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav__hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav__hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* ════════════════════════════════════════════
+       HERO — PAGE HEADER
+    ════════════════════════════════════════════ */
+    .page-hero {
+      position: relative;
+      background: var(--navy);
+      padding: 140px 0 60px;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .page-hero__bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 20% 30%, rgba(16,185,129,0.07) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(225,29,72,0.06) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .page-hero__inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .page-hero h1 {
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+
+    .page-hero p {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.65);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* ════════════════════════════════════════════
+       LEGAL CONTENT
+    ════════════════════════════════════════════ */
+    .legal {
+      padding: 80px 0 100px;
+    }
+
+    .legal__content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .legal__effective {
+      display: inline-block;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--teal);
+      background: rgba(16,185,129,0.08);
+      border: 1px solid rgba(16,185,129,0.2);
+      border-radius: 100px;
+      padding: 6px 18px;
+      margin-bottom: 40px;
+    }
+
+    .legal__content h2 {
+      font-size: 1.4rem;
+      margin-top: 48px;
+      margin-bottom: 16px;
+      color: var(--navy);
+    }
+
+    .legal__content h2:first-of-type {
+      margin-top: 0;
+    }
+
+    .legal__content p {
+      margin-bottom: 16px;
+      line-height: 1.8;
+    }
+
+    .legal__content ul {
+      list-style: disc;
+      padding-left: 24px;
+      margin-bottom: 16px;
+    }
+
+    .legal__content ul li {
+      color: var(--gray-700);
+      line-height: 1.8;
+      margin-bottom: 8px;
+    }
+
+    .legal__content a {
+      color: var(--gold);
+      text-decoration: underline;
+      transition: color 0.2s ease;
+    }
+    .legal__content a:hover {
+      color: var(--gold-dark);
+    }
+
+    /* ════════════════════════════════════════════
+       FOOTER
+    ════════════════════════════════════════════ */
+    .footer {
+      background: var(--navy);
+      padding: 48px 0 0;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .footer__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .footer .nav__logo { gap: 12px; }
+
+    .footer__links {
+      display: flex;
+      gap: 24px;
+    }
+    .footer__link {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.6);
+      transition: color 0.2s ease;
+    }
+    .footer__link:hover { color: var(--white); }
+
+    .footer__bottom {
+      padding: 20px 0;
+    }
+    .footer__bottom-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .footer__bottom p {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.45);
+    }
+    .footer__legal {
+      display: flex;
+      gap: 20px;
+    }
+    .footer__legal a {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.45);
+      transition: color 0.2s ease;
+    }
+    .footer__legal a:hover { color: rgba(255,255,255,0.8); }
+
+    /* ════════════════════════════════════════════
+       RESPONSIVE
+    ════════════════════════════════════════════ */
+    @media (max-width: 768px) {
+      .nav__links { display: none; }
+      .nav__hamburger { display: flex; }
+
+      .nav__links.mobile-open {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 72px;
+        left: 0; right: 0; bottom: 0;
+        background: var(--navy);
+        padding: 32px 24px;
+        gap: 8px;
+        z-index: 999;
+      }
+      .nav__links.mobile-open .nav__link {
+        font-size: 1.1rem;
+        padding: 14px 16px;
+      }
+
+      .page-hero { padding: 120px 0 48px; }
+
+      .legal { padding: 48px 0 72px; }
+
+      .footer__inner {
+        flex-direction: column;
+        text-align: center;
+      }
+      .footer__links { flex-wrap: wrap; justify-content: center; }
+      .footer__bottom-inner {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════════
+       NAVIGATION
+  ═══════════════════════════════════════════════ -->
+  <nav class="nav" id="nav">
+    <div class="container nav__inner">
+      <a href="index.html" class="nav__logo">
+        <svg class="logo-icon" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="22" cy="22" r="20" stroke="#10B981" stroke-width="2"/>
+          <polygon points="22,4 26,20 22,24 18,20" fill="#E11D48"/>
+          <polygon points="22,40 26,24 22,20 18,24" fill="rgba(16,185,129,0.4)"/>
+          <circle cx="22" cy="22" r="3" fill="#FFFFFF"/>
+          <line x1="8" y1="22" x2="36" y2="22" stroke="#10B981" stroke-width="1" stroke-dasharray="3 3" opacity="0.5"/>
+        </svg>
+        <div class="logo-text">
+          <span class="logo-wordmark"><span class="lc-t">T</span><span class="lc-r">R</span><span class="lc-p">P</span><span class="lc-s">S</span><span class="lc-h">H</span></span>
+          <span class="logo-tagline">The Right Path Starts Here</span>
+        </div>
+      </a>
+      <ul class="nav__links" id="navLinks">
+        <li><a href="index.html" class="nav__link">Home</a></li>
+        <li><a href="index.html#course" class="nav__link">The Course</a></li>
+        <li><a href="index.html#book" class="nav__link">Free Book</a></li>
+        <li><a href="quiz.html" class="nav__link">Take The Test</a></li>
+        <li><a href="index.html#contact" class="nav__link">Contact</a></li>
+      </ul>
+      <button class="nav__hamburger" id="hamburger" aria-label="Open navigation menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════════
+       PAGE HERO
+  ═══════════════════════════════════════════════ -->
+  <section class="page-hero">
+    <div class="page-hero__bg" aria-hidden="true"></div>
+    <div class="container page-hero__inner" data-animate>
+      <h1>Privacy Policy</h1>
+      <p>How we collect, use, and protect your information.</p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       PRIVACY POLICY CONTENT
+  ═══════════════════════════════════════════════ -->
+  <section class="legal">
+    <div class="container">
+      <div class="legal__content" data-animate>
+        <span class="legal__effective">Effective Date: March 27, 2026</span>
+
+        <h2>1. Introduction</h2>
+        <p>TRPSH — The Right Path Starts Here ("TRPSH," "we," "us," or "our") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website and use our services, including our educational quiz and related resources.</p>
+        <p>By accessing or using our website, you agree to the terms of this Privacy Policy. If you do not agree, please do not use our services.</p>
+
+        <h2>2. Information We Collect</h2>
+        <p>We may collect the following types of personal information when you interact with our website:</p>
+        <ul>
+          <li><strong>Name</strong> — provided when you sign up for the Founding Class or contact us</li>
+          <li><strong>Email address</strong> — used to deliver quiz access, updates, and communications</li>
+          <li><strong>City</strong> — collected to understand our audience and tailor future events</li>
+          <li><strong>Graduation year</strong> — collected through the Founding Class registration form</li>
+        </ul>
+        <p>We do not collect sensitive personal information such as Social Security numbers, financial account details, or health information.</p>
+
+        <h2>3. How We Use Your Information</h2>
+        <p>We use the information we collect for the following purposes:</p>
+        <ul>
+          <li>To provide access to the TRPSH quiz and educational resources</li>
+          <li>To send updates about upcoming events, new content, and program announcements</li>
+          <li>To communicate with you regarding your account or inquiries</li>
+          <li>To improve our website, content, and user experience</li>
+          <li>To analyze aggregate usage trends and demographics</li>
+        </ul>
+
+        <h2>4. We Do Not Sell Your Data</h2>
+        <p>We do not sell, rent, trade, or otherwise share your personal information with third parties for their marketing purposes. Your data is used solely to operate and improve TRPSH services.</p>
+
+        <h2>5. Cookies and Analytics</h2>
+        <p>Our website may use cookies and similar tracking technologies for analytics purposes only. These help us understand how visitors interact with our site so we can improve the experience. We do not use cookies for advertising or behavioral targeting.</p>
+        <p>You can control cookie preferences through your browser settings. Disabling cookies may affect certain features of the website.</p>
+
+        <h2>6. Data Retention</h2>
+        <p>We retain your personal information for as long as necessary to fulfill the purposes described in this policy, unless a longer retention period is required or permitted by law. If you request deletion of your data, we will remove it within a reasonable timeframe.</p>
+
+        <h2>7. Data Security</h2>
+        <p>We implement reasonable technical and organizational measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction. However, no method of electronic transmission or storage is completely secure, and we cannot guarantee absolute security.</p>
+
+        <h2>8. Children's Privacy (COPPA)</h2>
+        <p>TRPSH is intended for individuals aged 18 and older. We do not knowingly collect personal information from children under the age of 13. If we become aware that we have collected information from a child under 13, we will take steps to delete that information promptly.</p>
+        <p>If you are a parent or guardian and believe your child has provided us with personal information, please contact us immediately so we can take appropriate action.</p>
+
+        <h2>9. Your Rights</h2>
+        <p>You have the right to:</p>
+        <ul>
+          <li><strong>Access</strong> — Request a copy of the personal information we hold about you</li>
+          <li><strong>Correction</strong> — Request correction of any inaccurate information</li>
+          <li><strong>Deletion</strong> — Request that we delete your personal information</li>
+          <li><strong>Opt-out</strong> — Unsubscribe from marketing communications at any time</li>
+        </ul>
+        <p>To exercise any of these rights, please contact us using the information provided below.</p>
+
+        <h2>10. Third-Party Links</h2>
+        <p>Our website may contain links to third-party websites or services. We are not responsible for the privacy practices of those third parties. We encourage you to review the privacy policies of any external sites you visit.</p>
+
+        <h2>11. Changes to This Policy</h2>
+        <p>We may update this Privacy Policy from time to time. When we do, we will revise the "Effective Date" at the top of this page. We encourage you to review this policy periodically to stay informed about how we protect your information.</p>
+
+        <h2>12. Contact Us</h2>
+        <p>If you have questions or concerns about this Privacy Policy or your personal data, please contact us:</p>
+        <p><strong>TRPSH — The Right Path Starts Here</strong><br>
+        Email: <a href="mailto:contact@trpsh.com">contact@trpsh.com</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <a href="index.html" class="nav__logo">
+        <svg class="logo-icon" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="22" cy="22" r="20" stroke="#10B981" stroke-width="2"/>
+          <polygon points="22,4 26,20 22,24 18,20" fill="#E11D48"/>
+          <polygon points="22,40 26,24 22,20 18,24" fill="rgba(16,185,129,0.4)"/>
+          <circle cx="22" cy="22" r="3" fill="#FFFFFF"/>
+          <line x1="8" y1="22" x2="36" y2="22" stroke="#10B981" stroke-width="1" stroke-dasharray="3 3" opacity="0.5"/>
+        </svg>
+        <div class="logo-text">
+          <span class="logo-wordmark"><span class="lc-t">T</span><span class="lc-r">R</span><span class="lc-p">P</span><span class="lc-s">S</span><span class="lc-h">H</span></span>
+          <span class="logo-tagline">The Right Path Starts Here</span>
+        </div>
+      </a>
+      <div class="footer__links">
+        <a href="index.html" class="footer__link">Home</a>
+        <a href="index.html#course" class="footer__link">The Course</a>
+        <a href="index.html#book" class="footer__link">Free Book</a>
+        <a href="quiz.html" class="footer__link">Take The Test</a>
+        <a href="index.html#contact" class="footer__link">Contact</a>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <div class="container footer__bottom-inner">
+        <p>&copy; 2026 TRPSH &mdash; The Right Path Starts Here. All rights reserved.</p>
+        <div class="footer__legal">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms of Use</a>
+          <a href="accessibility.html">Accessibility</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      /* ─── Mobile Nav ─── */
+      const hamburger = document.getElementById('hamburger');
+      const navLinks  = document.getElementById('navLinks');
+
+      hamburger.addEventListener('click', () => {
+        const isOpen = navLinks.classList.toggle('mobile-open');
+        hamburger.classList.toggle('open', isOpen);
+        hamburger.setAttribute('aria-label', isOpen ? 'Close navigation' : 'Open navigation menu');
+        document.body.style.overflow = isOpen ? 'hidden' : '';
+      });
+
+      navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          navLinks.classList.remove('mobile-open');
+          hamburger.classList.remove('open');
+          document.body.style.overflow = '';
+        });
+      });
+
+      /* ─── Scroll Animations (IntersectionObserver) ─── */
+      const animObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            animObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+      document.querySelectorAll('[data-animate]').forEach((el, i) => {
+        el.style.transitionDelay = `${(i % 4) * 0.08}s`;
+        animObserver.observe(el);
+      });
+    });
+  </script>
+</body>
+</html>
