@@ -193,6 +193,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
   sections.forEach(s => sectionObserver.observe(s));
 
+  /* ─── Sticky Mobile CTA — show after scrolling past hero ─── */
+  const stickyCta = document.getElementById('stickyCta');
+  if (stickyCta) {
+    const heroSection = document.getElementById('home');
+    const stickyObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        stickyCta.classList.toggle('visible', !entry.isIntersecting);
+      });
+    }, { threshold: 0.1 });
+    if (heroSection) stickyObserver.observe(heroSection);
+  }
+
   /* ─── Testimonial track: pause on focus for accessibility ─── */
   document.querySelectorAll('.testimonials__track').forEach(track => {
     track.querySelectorAll('.t-card').forEach(card => {
