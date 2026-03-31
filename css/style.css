@@ -1422,7 +1422,7 @@ p  { color: var(--gray-700); }
 .score-ring__big-q {
   font-family: 'Montserrat', sans-serif;
   font-weight: 900;
-  font-size: 4.5rem;
+  font-size: 6rem;
   color: var(--white);
   animation: bigQPulse 1.8s ease-in-out infinite;
   line-height: 1;
