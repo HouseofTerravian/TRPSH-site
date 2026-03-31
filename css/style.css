@@ -1419,25 +1419,17 @@ p  { color: var(--gray-700); }
   align-items: center;
   justify-content: center;
 }
-.score-ring__num {
+.score-ring__big-q {
   font-family: 'Montserrat', sans-serif;
   font-weight: 900;
-  font-size: 2.5rem;
+  font-size: 4.5rem;
   color: var(--white);
-  animation: numPulse 2s ease-in-out infinite;
+  animation: bigQPulse 1.8s ease-in-out infinite;
+  line-height: 1;
 }
-@keyframes numPulse {
-  0%,100% { opacity: 1; }
-  50% { opacity: 0.5; }
-}
-.score-ring__pct {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
-  font-size: 1.25rem;
-  color: var(--gold);
-  margin-left: 2px;
-  align-self: flex-start;
-  margin-top: 12px;
+@keyframes bigQPulse {
+  0%,100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.92); }
 }
 .quiz-preview__question {
   font-family: 'Montserrat', sans-serif;
