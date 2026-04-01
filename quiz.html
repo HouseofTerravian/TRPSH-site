@@ -663,6 +663,19 @@
       <h1 class="start__title" style="margin-bottom: 16px;">This Test Requires <span class="text-gold">Purchase</span></h1>
       <p class="start__sub" style="max-width: 520px; margin: 0 auto 40px;">The TRPSH Life Readiness Test is a premium experience — 100 research-backed questions that prepare your grad for the real world. Purchase access to begin.</p>
       <a href="quiz-landing.html#buy" class="btn btn--gold btn--xl">Get Access — $100</a>
+
+      <!-- Promo Code -->
+      <div style="margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--border, #E5E7EB);">
+        <p style="color: var(--gray-500); font-size: 0.9rem; margin-bottom: 16px;">Have an access code?</p>
+        <div style="display: flex; gap: 10px; max-width: 380px; margin: 0 auto;">
+          <input type="text" id="promoInput" placeholder="Enter code" autocomplete="off" spellcheck="false"
+            style="flex: 1; padding: 12px 16px; border: 1.5px solid #E5E7EB; border-radius: 10px; font-family: 'Montserrat', sans-serif; font-size: 0.95rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #0A1F44; background: #fff; text-align: center;">
+          <button id="promoBtn" class="btn btn--gold" style="flex-shrink: 0;">Unlock</button>
+        </div>
+        <p id="promoError" style="color: #E11D48; font-size: 0.8rem; margin-top: 10px; display: none;">Invalid code. Please try again.</p>
+        <p id="promoSuccess" style="color: #10B981; font-size: 0.8rem; margin-top: 10px; display: none; font-weight: 600;">Access granted! Loading...</p>
+      </div>
+
       <p style="color: var(--gray-500); font-size: 0.85rem; margin-top: 20px;">Already purchased? <a href="quiz-landing.html#buy" style="color: var(--gold); text-decoration: underline;">Contact support</a> if you're having trouble accessing The Test.</p>
     </div>
   </div>
@@ -888,6 +901,60 @@
       startScreenEl.classList.add('active', 'visible');
     }
     /* If no access, gate stays visible, start screen stays hidden */
+
+    /* ─── Promo Code System ─── */
+    /*
+       To add/remove codes, just edit this array.
+       Codes are case-insensitive. Each code can only be used once per browser.
+       For single-use global codes, you'd need a backend — this is client-side only.
+    */
+    const VALID_CODES = [
+      'TRPSH2026',
+      'RIGHTPATH',
+      'FOUNDERS100'
+    ];
+
+    const promoInput   = document.getElementById('promoInput');
+    const promoBtn     = document.getElementById('promoBtn');
+    const promoError   = document.getElementById('promoError');
+    const promoSuccess = document.getElementById('promoSuccess');
+
+    if (promoBtn) {
+      function tryPromoCode() {
+        const code = promoInput.value.trim().toUpperCase();
+        promoError.style.display = 'none';
+        promoSuccess.style.display = 'none';
+
+        if (!code) {
+          promoError.textContent = 'Please enter a code.';
+          promoError.style.display = 'block';
+          return;
+        }
+
+        if (VALID_CODES.includes(code)) {
+          localStorage.setItem('trpsh_access', 'true');
+          localStorage.setItem('trpsh_access_code', code);
+          promoSuccess.style.display = 'block';
+          promoBtn.disabled = true;
+          promoInput.disabled = true;
+          setTimeout(() => {
+            gateScreen.style.display = 'none';
+            gateScreen.classList.remove('active', 'visible');
+            startScreenEl.classList.add('active', 'visible');
+          }, 800);
+        } else {
+          promoError.textContent = 'Invalid code. Please try again.';
+          promoError.style.display = 'block';
+          promoInput.value = '';
+          promoInput.focus();
+        }
+      }
+
+      promoBtn.addEventListener('click', tryPromoCode);
+      promoInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') { e.preventDefault(); tryPromoCode(); }
+      });
+    }
 
     /* ─── State ─── */
     const state = {
