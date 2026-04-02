@@ -858,6 +858,39 @@
         </div>
       </div>
 
+      <!-- Job Interest Capture -->
+      <div id="jobInterestSection" style="margin-top: 48px; padding: 40px; background: linear-gradient(135deg, #0A1F44 0%, #142E6F 100%); border-radius: 20px; text-align: center; border: 1px solid rgba(16,185,129,0.2); position: relative; overflow: hidden;">
+        <div style="position: absolute; inset: 0; background: radial-gradient(circle at 70% 30%, rgba(16,185,129,0.08) 0%, transparent 50%); pointer-events: none;"></div>
+        <div style="position: relative; z-index: 1;">
+          <div style="display: inline-flex; align-items: center; gap: 8px; font-family: 'Montserrat', sans-serif; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal); background: rgba(16,185,129,0.12); border: 1px solid rgba(16,185,129,0.25); border-radius: 100px; padding: 6px 18px; margin-bottom: 20px;">
+            Coming Soon
+          </div>
+          <h3 style="font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1.4rem; color: #FFFFFF; margin-bottom: 12px;">Need Help <span style="color: var(--gold);">Finding a Job?</span></h3>
+          <p style="color: rgba(255,255,255,0.65); font-size: 1rem; line-height: 1.7; max-width: 520px; margin: 0 auto 28px;">You took the test. You know where you stand. Now let us help you take the next step. We're building something to connect graduates with real job opportunities — so you don't enter the real world alone.</p>
+
+          <div id="jobInterestForm" style="max-width: 400px; margin: 0 auto;">
+            <div style="margin-bottom: 12px;">
+              <input type="email" id="jobEmail" placeholder="Your email address" required
+                style="width: 100%; padding: 14px 18px; border: 1.5px solid rgba(255,255,255,0.15); border-radius: 10px; font-family: 'Inter', sans-serif; font-size: 0.95rem; color: #fff; background: rgba(255,255,255,0.06); text-align: center;">
+            </div>
+            <div style="margin-bottom: 16px;">
+              <input type="tel" id="jobPhone" placeholder="Phone number (optional)"
+                style="width: 100%; padding: 14px 18px; border: 1.5px solid rgba(255,255,255,0.15); border-radius: 10px; font-family: 'Inter', sans-serif; font-size: 0.95rem; color: #fff; background: rgba(255,255,255,0.06); text-align: center;">
+            </div>
+            <button type="button" id="jobInterestBtn" class="btn btn--teal btn--lg" style="width: 100%; justify-content: center;">
+              I'm Interested — Keep Me Posted
+            </button>
+            <p style="color: rgba(255,255,255,0.3); font-size: 0.75rem; margin-top: 12px;">We'll only reach out when this is ready. No spam.</p>
+          </div>
+
+          <div id="jobInterestSuccess" style="display: none;">
+            <div style="width: 52px; height: 52px; background: var(--teal); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; font-size: 1.25rem; color: #fff; font-weight: 700;">&#10003;</div>
+            <h4 style="font-family: 'Montserrat', sans-serif; font-weight: 700; color: #fff; margin-bottom: 8px;">You're on the list.</h4>
+            <p style="color: rgba(255,255,255,0.55); font-size: 0.9rem;">We'll reach out when we're ready to help you find your first opportunity.</p>
+          </div>
+        </div>
+      </div>
+
       <!-- Results ad -->
       <div class="results__ad">
         <div class="ad-space__inner">
@@ -1302,6 +1335,39 @@
     shareBtn.addEventListener('click', shareScore);
     var retryForTest2Btn = document.getElementById('retryForTest2Btn');
     if (retryForTest2Btn) retryForTest2Btn.addEventListener('click', retakeQuiz);
+
+    /* ─── Job Interest Capture ─── */
+    var jobInterestBtn = document.getElementById('jobInterestBtn');
+    if (jobInterestBtn) {
+      jobInterestBtn.addEventListener('click', function() {
+        var emailField = document.getElementById('jobEmail');
+        var phoneField = document.getElementById('jobPhone');
+        var email = emailField.value.trim();
+        var phone = phoneField.value.trim();
+
+        if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+          emailField.style.borderColor = 'var(--gold)';
+          emailField.focus();
+          return;
+        }
+
+        // Store locally (replace with real backend later)
+        var leads = JSON.parse(localStorage.getItem('trpsh_job_leads') || '[]');
+        leads.push({ email: email, phone: phone, score: state.score, date: new Date().toISOString() });
+        localStorage.setItem('trpsh_job_leads', JSON.stringify(leads));
+
+        document.getElementById('jobInterestForm').style.display = 'none';
+        document.getElementById('jobInterestSuccess').style.display = 'block';
+      });
+
+      // Clear error on input
+      var jobEmailField = document.getElementById('jobEmail');
+      if (jobEmailField) {
+        jobEmailField.addEventListener('input', function() {
+          jobEmailField.style.borderColor = 'rgba(255,255,255,0.15)';
+        });
+      }
+    }
 
   })();
   </script>
