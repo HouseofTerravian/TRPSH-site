@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="PathReady Staffing — Hands to guide you. Jobs to grow you. Job placement for TRPSH-certified graduates. Earn points. Redeem at Kampus Krashers.">
+  <title>PathReady Staffing — Hands to Guide You. Jobs to Grow You.</title>
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* ═══════════════════════════════════════════════
+       PathReady Staffing — Landing Page
+       Extends TRPSH design system
+    ═══════════════════════════════════════════════ */
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:       #0A1F44;
+      --navy-mid:   #142E6F;
+      --gold:       #E11D48;
+      --gold-dark:  #BE123C;
+      --teal:       #10B981;
+      --teal-dark:  #059669;
+      --cream:      #F1F5F9;
+      --white:      #FFFFFF;
+      --charcoal:   #0A1F44;
+      --gray-700:   #374151;
+      --gray-500:   #6B7280;
+      --gray-300:   #D1D5DB;
+      --gray-100:   #F3F4F6;
+      --border:     #E5E7EB;
+      --shadow-sm:  0 1px 3px rgba(0,0,0,.08), 0 1px 2px rgba(0,0,0,.06);
+      --shadow-md:  0 4px 16px rgba(0,0,0,.10);
+      --shadow-lg:  0 12px 40px rgba(0,0,0,.14);
+      --radius:     12px;
+      --radius-lg:  20px;
+      --radius-xl:  28px;
+      --transition: 0.25s cubic-bezier(0.4,0,0.2,1);
+    }
+
+    html { scroll-behavior: smooth; font-size: 16px; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: #0F172A;
+      background: var(--white);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img, svg { display: block; max-width: 100%; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+    button { cursor: pointer; border: none; background: none; font-family: inherit; }
+    input, textarea, select { font-family: inherit; font-size: 1rem; width: 100%; }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      line-height: 1.15;
+      color: var(--charcoal);
+    }
+    h1 { font-size: clamp(2.2rem, 5vw, 3.5rem); }
+    h2 { font-size: clamp(1.8rem, 3.5vw, 2.75rem); }
+    h3 { font-size: clamp(1.25rem, 2vw, 1.6rem); font-weight: 700; }
+    h4 { font-size: 1.1rem; font-weight: 700; }
+    p  { color: var(--gray-700); }
+
+    .text-gold { color: var(--gold); }
+    .text-teal { color: var(--teal); }
+
+    .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    .section { padding: 100px 0; }
+    .section--cream { background: var(--cream); }
+    .section--navy { background: var(--navy); }
+
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      background: rgba(225,29,72,0.1);
+      border: 1px solid rgba(225,29,72,0.25);
+      border-radius: 100px;
+      padding: 6px 16px;
+      margin-bottom: 20px;
+    }
+    .section-label--light { color: rgba(255,255,255,0.85); background: rgba(225,29,72,0.12); border-color: rgba(225,29,72,0.2); }
+    .section-label--teal { color: var(--teal); background: rgba(16,185,129,0.1); border-color: rgba(16,185,129,0.2); }
+    .section-title { margin-bottom: 20px; }
+    .section-title--white { color: var(--white); }
+    .section-sub { font-size: 1.1rem; max-width: 680px; color: var(--gray-500); line-height: 1.75; margin-bottom: 40px; }
+    .section-sub--light { color: rgba(255,255,255,0.7); }
+    .section-sub--center { margin-left: auto; margin-right: auto; text-align: center; }
+
+    /* ─── Buttons ─── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      letter-spacing: 0.02em;
+      border-radius: 100px;
+      padding: 12px 28px;
+      transition: background-color 150ms ease, border-color 150ms ease, transform 150ms ease, box-shadow 150ms ease;
+      white-space: nowrap;
+      border: 2px solid transparent;
+    }
+    .btn--lg { padding: 15px 36px; font-size: 1rem; }
+    .btn--xl { padding: 18px 48px; font-size: 1.15rem; }
+    .btn--full { width: 100%; justify-content: center; }
+
+    .btn--gold { background: var(--gold); color: var(--white); border-color: var(--gold); }
+    .btn--gold:hover { background: var(--gold-dark); border-color: var(--gold-dark); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(225,29,72,0.35); }
+
+    .btn--teal { background: var(--teal); color: var(--white); border-color: var(--teal); }
+    .btn--teal:hover { background: var(--teal-dark); border-color: var(--teal-dark); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(16,185,129,0.35); }
+
+    .btn--outline-white { background: transparent; color: var(--white); border-color: rgba(255,255,255,0.5); }
+    .btn--outline-white:hover { background: rgba(255,255,255,0.1); border-color: var(--white); transform: translateY(-2px); }
+
+    /* ─── Animate on Scroll ─── */
+    [data-animate] { opacity: 0; transform: translateY(28px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    [data-animate].in-view { opacity: 1; transform: none; }
+
+    /* ─── Logo ─── */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      background: rgba(10,31,68,0.97);
+      backdrop-filter: blur(16px);
+      box-shadow: 0 2px 20px rgba(0,0,0,0.2);
+    }
+    .nav__inner { display: flex; align-items: center; gap: 32px; height: 72px; }
+    .nav__logo { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+    .logo-icon { width: 54px; height: 54px; flex-shrink: 0; }
+    .logo-text { display: flex; flex-direction: column; }
+    .logo-wordmark {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 1.7rem;
+      color: var(--white);
+      letter-spacing: 0.06em;
+      line-height: 1;
+    }
+    .logo-tagline {
+      font-size: 0.68rem;
+      color: rgba(255,255,255,0.6);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 500;
+      line-height: 1;
+      margin-top: 4px;
+    }
+    .nav__links { display: flex; align-items: center; gap: 8px; margin-left: auto; }
+    .nav__link {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 0.875rem;
+      color: rgba(255,255,255,0.8);
+      padding: 8px 12px;
+      border-radius: 8px;
+      transition: color var(--transition), background var(--transition);
+    }
+    .nav__link:hover { color: var(--white); background: rgba(255,255,255,0.08); }
+    .nav__cta { flex-shrink: 0; }
+    .nav__hamburger { display: none; flex-direction: column; gap: 5px; padding: 8px; margin-left: auto; }
+    .nav__hamburger span { display: block; width: 22px; height: 2px; background: var(--white); border-radius: 2px; transition: all var(--transition); }
+    .nav__hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav__hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav__hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .lc-t { color: #10B981; }
+    .lc-r { color: #E11D48; }
+    .lc-p { color: #FFFFFF; }
+    .lc-s { color: #E11D48; }
+    .lc-h { color: #10B981; }
+
+    /* ════════════════════════════════════════════
+       HERO
+    ════════════════════════════════════════════ */
+    .pr-hero {
+      position: relative;
+      background: linear-gradient(135deg, #0A1F44 0%, #142E6F 60%, #0A1F44 100%);
+      padding: 160px 0 120px;
+      overflow: hidden;
+    }
+    .pr-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 20% 40%, rgba(16,185,129,0.12) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(225,29,72,0.08) 0%, transparent 45%);
+      pointer-events: none;
+    }
+    .pr-hero__inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+    .pr-hero__badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--teal);
+      background: rgba(16,185,129,0.1);
+      border: 1px solid rgba(16,185,129,0.25);
+      border-radius: 100px;
+      padding: 6px 16px;
+      margin-bottom: 24px;
+      width: fit-content;
+    }
+    .pr-hero__badge-dot {
+      width: 8px; height: 8px;
+      background: var(--teal);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%,100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.85); }
+    }
+    .pr-hero__title { color: var(--white); margin-bottom: 8px; }
+    .pr-hero__tagline {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 1.1rem;
+      font-style: italic;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 24px;
+    }
+    .pr-hero__sub {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.75;
+      margin-bottom: 36px;
+      max-width: 520px;
+    }
+    .pr-hero__ctas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    /* Hero visual — journey card */
+    .pr-journey-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius-xl);
+      padding: 36px 32px;
+      max-width: 380px;
+      margin: 0 auto;
+      backdrop-filter: blur(12px);
+    }
+    .pr-journey-card__title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 28px;
+    }
+    .pr-step {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 24px;
+      position: relative;
+    }
+    .pr-step:last-child { margin-bottom: 0; }
+    .pr-step::before {
+      content: '';
+      position: absolute;
+      left: 17px;
+      top: 38px;
+      bottom: -24px;
+      width: 2px;
+      background: rgba(255,255,255,0.08);
+    }
+    .pr-step:last-child::before { display: none; }
+    .pr-step__num {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 0.85rem;
+      flex-shrink: 0;
+      position: relative;
+      z-index: 1;
+    }
+    .pr-step__num--done { background: var(--teal); color: var(--white); }
+    .pr-step__num--active { background: var(--gold); color: var(--white); animation: pulse 2s infinite; }
+    .pr-step__num--locked { background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.3); }
+    .pr-step__text strong {
+      display: block;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--white);
+      margin-bottom: 2px;
+    }
+    .pr-step__text span {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.45);
+    }
+
+    /* ════════════════════════════════════════════
+       HOW IT WORKS
+    ════════════════════════════════════════════ */
+    .how-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      margin-top: 48px;
+    }
+    .how-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      padding: 36px 28px;
+      text-align: center;
+      box-shadow: 0 8px 24px rgba(10,31,68,0.06);
+      transition: all 200ms ease;
+    }
+    .how-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(10,31,68,0.12); }
+    .how-card__icon {
+      width: 64px; height: 64px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.75rem;
+      margin: 0 auto 20px;
+    }
+    .how-card__icon--teal { background: rgba(16,185,129,0.1); }
+    .how-card__icon--gold { background: rgba(225,29,72,0.1); }
+    .how-card__icon--navy { background: rgba(10,31,68,0.08); }
+    .how-card h4 { margin-bottom: 10px; }
+    .how-card p { font-size: 0.9rem; line-height: 1.65; }
+
+    /* ════════════════════════════════════════════
+       POINTS PROGRAM
+    ════════════════════════════════════════════ */
+    .points-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .points-visual {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius-xl);
+      padding: 36px 32px;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    .points-visual__title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      margin-bottom: 24px;
+    }
+    .points-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .points-row:last-child { border-bottom: none; }
+    .points-row__action {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.8);
+    }
+    .points-row__pts {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 1rem;
+      color: var(--teal);
+    }
+    .points-redeem {
+      margin-top: 24px;
+      padding: 20px;
+      background: rgba(225,29,72,0.08);
+      border: 1px solid rgba(225,29,72,0.15);
+      border-radius: var(--radius-lg);
+      text-align: center;
+    }
+    .points-redeem__label {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 6px;
+    }
+    .points-redeem__text {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.55);
+    }
+
+    /* ════════════════════════════════════════════
+       WHO IT'S FOR
+    ════════════════════════════════════════════ */
+    .for-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      margin-top: 48px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .for-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 28px 24px;
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      box-shadow: 0 4px 16px rgba(10,31,68,0.06);
+    }
+    .for-card__icon {
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      background: rgba(16,185,129,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      flex-shrink: 0;
+    }
+    .for-card strong {
+      display: block;
+      font-family: 'Montserrat', sans-serif;
+      margin-bottom: 4px;
+    }
+    .for-card p { font-size: 0.875rem; line-height: 1.6; }
+
+    /* ════════════════════════════════════════════
+       WAITLIST CTA
+    ════════════════════════════════════════════ */
+    .waitlist-inner {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .waitlist-form {
+      margin-top: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      max-width: 420px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .waitlist-form input {
+      padding: 14px 18px;
+      border: 1.5px solid rgba(255,255,255,0.15);
+      border-radius: 10px;
+      font-size: 0.95rem;
+      color: #fff;
+      background: rgba(255,255,255,0.06);
+      text-align: center;
+    }
+    .waitlist-form input::placeholder { color: rgba(255,255,255,0.3); }
+    .waitlist-form input:focus { outline: none; border-color: var(--teal); box-shadow: 0 0 0 3px rgba(16,185,129,0.15); }
+    .waitlist-form input.error { border-color: var(--gold); }
+    .waitlist-form select {
+      padding: 14px 18px;
+      border: 1.5px solid rgba(255,255,255,0.15);
+      border-radius: 10px;
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.7);
+      background: rgba(255,255,255,0.06);
+      text-align: center;
+      appearance: none;
+    }
+    .waitlist-form select:focus { outline: none; border-color: var(--teal); }
+
+    /* ════════════════════════════════════════════
+       FOOTER
+    ════════════════════════════════════════════ */
+    .footer { background: #060E22; }
+    .footer__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+      padding: 60px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      flex-wrap: wrap;
+    }
+    .footer__brand-desc {
+      margin-top: 16px;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.4);
+      max-width: 340px;
+      line-height: 1.6;
+    }
+    .footer__links-row { display: flex; gap: 24px; flex-wrap: wrap; }
+    .footer__links-row a {
+      font-size: 0.875rem;
+      color: rgba(255,255,255,0.5);
+      transition: color var(--transition);
+    }
+    .footer__links-row a:hover { color: var(--gold); }
+    .footer__bottom { padding: 20px 0; }
+    .footer__bottom-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .footer__bottom p { font-size: 0.8rem; color: rgba(255,255,255,0.25); }
+    .footer__legal { display: flex; gap: 24px; }
+    .footer__legal a { font-size: 0.8rem; color: rgba(255,255,255,0.25); transition: color var(--transition); }
+    .footer__legal a:hover { color: rgba(255,255,255,0.55); }
+
+    .nav__logo--footer .logo-wordmark { font-size: 1.2rem; }
+
+    /* ════════════════════════════════════════════
+       RESPONSIVE
+    ════════════════════════════════════════════ */
+    @media (max-width: 1024px) {
+      .pr-hero__inner { grid-template-columns: 1fr; text-align: center; }
+      .pr-hero__badge { margin: 0 auto 24px; }
+      .pr-hero__sub { margin-left: auto; margin-right: auto; }
+      .pr-hero__ctas { justify-content: center; }
+      .pr-journey-card { order: -1; }
+      .how-grid { grid-template-columns: 1fr; max-width: 420px; margin-left: auto; margin-right: auto; }
+      .points-inner { grid-template-columns: 1fr; gap: 48px; }
+      .for-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 768px) {
+      .pr-hero { padding: 120px 0 80px; }
+      .nav__links, .nav__cta { display: none; }
+      .nav__hamburger { display: flex; }
+      .nav__links.mobile-open {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 72px; left: 0; right: 0; bottom: 0;
+        background: var(--navy);
+        padding: 32px 24px;
+        gap: 8px;
+        z-index: 999;
+        overflow-y: auto;
+      }
+      .nav__links.mobile-open .nav__link { font-size: 1.2rem; padding: 16px; border-radius: 12px; }
+    }
+    @media (max-width: 480px) {
+      .pr-hero__ctas { flex-direction: column; }
+      .pr-hero__ctas .btn { width: 100%; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════════
+       NAVIGATION
+  ═══════════════════════════════════════════════ -->
+  <nav class="nav" id="nav">
+    <div class="container nav__inner">
+      <a href="../index.html" class="nav__logo">
+        <svg class="logo-icon" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="22" cy="22" r="21" fill="#0A1F44"/>
+          <circle cx="22" cy="22" r="20" stroke="#10B981" stroke-width="2"/>
+          <path d="M18 38 C18 34, 28 30, 26 26 C24 22, 16 20, 18 16 C20 12, 28 10, 26 6" stroke="#FFFFFF" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+          <path d="M18 38 C18 34, 28 30, 26 26 C24 22, 16 20, 18 16 C20 12, 28 10, 26 6" stroke="#E11D48" stroke-width="0.8" stroke-linecap="round" stroke-dasharray="2.5 3" fill="none"/>
+        </svg>
+        <div class="logo-text">
+          <span class="logo-wordmark"><span class="lc-t">T</span><span class="lc-r">R</span><span class="lc-p">P</span><span class="lc-s">S</span><span class="lc-h">H</span></span>
+          <span class="logo-tagline">The Right Path Starts Here</span>
+        </div>
+      </a>
+      <ul class="nav__links" id="navLinks">
+        <li><a href="../index.html" class="nav__link">Home</a></li>
+        <li><a href="../quiz-landing.html" class="nav__link">Take The Test</a></li>
+        <li><a href="../partners.html" class="nav__link">Free Tests</a></li>
+        <li><a href="../index.html#contact" class="nav__link">Contact</a></li>
+      </ul>
+      <a href="#waitlist" class="btn btn--teal nav__cta">Join the Waitlist</a>
+      <button class="nav__hamburger" id="hamburger" aria-label="Open navigation menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════════
+       HERO
+  ═══════════════════════════════════════════════ -->
+  <section class="pr-hero">
+    <div class="container pr-hero__inner">
+      <div data-animate>
+        <div class="pr-hero__badge">
+          <span class="pr-hero__badge-dot"></span>
+          Coming Soon
+        </div>
+        <h1 class="pr-hero__title">PathReady <span class="text-teal">Staffing</span></h1>
+        <p class="pr-hero__tagline">Hands to guide you. Jobs to grow you.</p>
+        <p class="pr-hero__sub">You took the test. You proved you're ready. Now let us help you find the job. PathReady connects TRPSH-certified graduates with real employers who value preparation — so you don't enter the real world alone.</p>
+        <div class="pr-hero__ctas">
+          <a href="#waitlist" class="btn btn--teal btn--xl">Join the Waitlist</a>
+          <a href="../quiz-landing.html" class="btn btn--outline-white btn--lg">Take The Test First</a>
+        </div>
+      </div>
+      <div data-animate>
+        <div class="pr-journey-card">
+          <p class="pr-journey-card__title">Your Journey</p>
+          <div class="pr-step">
+            <div class="pr-step__num pr-step__num--done">&#10003;</div>
+            <div class="pr-step__text">
+              <strong>Take The TRPSH Test</strong>
+              <span>100 questions. Prove you're ready.</span>
+            </div>
+          </div>
+          <div class="pr-step">
+            <div class="pr-step__num pr-step__num--active">2</div>
+            <div class="pr-step__text">
+              <strong>Get Placed by PathReady</strong>
+              <span>We match you with real employers.</span>
+            </div>
+          </div>
+          <div class="pr-step">
+            <div class="pr-step__num pr-step__num--locked">3</div>
+            <div class="pr-step__text">
+              <strong>Work. Earn Points.</strong>
+              <span>Every hour worked = points earned.</span>
+            </div>
+          </div>
+          <div class="pr-step">
+            <div class="pr-step__num pr-step__num--locked">4</div>
+            <div class="pr-step__text">
+              <strong>Redeem at Kampus Krashers</strong>
+              <span>Use points for events & experiences.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       HOW IT WORKS
+  ═══════════════════════════════════════════════ -->
+  <section class="section section--cream">
+    <div class="container" style="text-align: center;">
+      <div class="section-label" data-animate>How It Works</div>
+      <h2 class="section-title" data-animate>Pass the Test. Get the Job. <span class="text-gold">Earn the Rewards.</span></h2>
+      <p class="section-sub section-sub--center" data-animate>PathReady isn't a job board. It's a placement service for graduates who've proven they're prepared. Take the TRPSH test, get certified, and we go to work for you.</p>
+      <div class="how-grid">
+        <div class="how-card" data-animate>
+          <div class="how-card__icon how-card__icon--teal">&#9989;</div>
+          <h4>Get TRPSH-Certified</h4>
+          <p>Take the Life Readiness Test and score 70+. That's your credential. It tells employers you understand financial literacy, career readiness, and real-world decision-making.</p>
+        </div>
+        <div class="how-card" data-animate>
+          <div class="how-card__icon how-card__icon--gold">&#128188;</div>
+          <h4>We Place You</h4>
+          <p>No cold applications. No ghosted resumes. PathReady matches you with employers who are specifically looking for prepared, certified young professionals.</p>
+        </div>
+        <div class="how-card" data-animate>
+          <div class="how-card__icon how-card__icon--navy">&#127881;</div>
+          <h4>Earn & Celebrate</h4>
+          <p>Every hour you work earns points. Every sale you close earns more. Redeem your points at Kampus Krashers events — the celebration you earned.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       POINTS PROGRAM
+  ═══════════════════════════════════════════════ -->
+  <section class="section section--navy">
+    <div class="container points-inner">
+      <div data-animate>
+        <div class="section-label section-label--teal">Points Program</div>
+        <h2 class="section-title section-title--white">Work Hard. <span class="text-gold">Get Rewarded.</span></h2>
+        <p class="section-sub section-sub--light">Every hour you work through PathReady earns you points. In sales roles, every sale earns even more. Your points are redeemable at Kampus Krashers events — concerts, parties, and experiences exclusively for graduates who put in the work.</p>
+        <p style="color: rgba(255,255,255,0.35); font-size: 0.8rem; font-style: italic;">Points values and redemption details will be finalized at launch.</p>
+      </div>
+      <div data-animate>
+        <div class="points-visual">
+          <p class="points-visual__title">How You Earn</p>
+          <div class="points-row">
+            <span class="points-row__action">Every hour worked</span>
+            <span class="points-row__pts">+ Points</span>
+          </div>
+          <div class="points-row">
+            <span class="points-row__action">Every sale closed</span>
+            <span class="points-row__pts">+ Bonus Points</span>
+          </div>
+          <div class="points-row">
+            <span class="points-row__action">Complete onboarding</span>
+            <span class="points-row__pts">+ Welcome Bonus</span>
+          </div>
+          <div class="points-row">
+            <span class="points-row__action">Refer a friend</span>
+            <span class="points-row__pts">+ Referral Bonus</span>
+          </div>
+          <div class="points-redeem">
+            <p class="points-redeem__label">Redeem At</p>
+            <p class="points-redeem__text">Kampus Krashers events, concerts & experiences</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       WHO IT'S FOR
+  ═══════════════════════════════════════════════ -->
+  <section class="section section--cream">
+    <div class="container" style="text-align: center;">
+      <div class="section-label" data-animate>Who It's For</div>
+      <h2 class="section-title" data-animate>Built for Graduates Who Are <span class="text-gold">Ready to Work</span></h2>
+      <p class="section-sub section-sub--center" data-animate>Whether you're heading into the workforce, need income while in college, or want to build your resume before graduation — PathReady is for you.</p>
+      <div class="for-grid">
+        <div class="for-card" data-animate>
+          <div class="for-card__icon">&#127891;</div>
+          <div>
+            <strong>Recent High School Graduates</strong>
+            <p>Entering the workforce for the first time? We'll make sure your first job isn't your worst job.</p>
+          </div>
+        </div>
+        <div class="for-card" data-animate>
+          <div class="for-card__icon">&#127979;</div>
+          <div>
+            <strong>College Students</strong>
+            <p>Need income while studying? We match you with flexible, resume-building positions.</p>
+          </div>
+        </div>
+        <div class="for-card" data-animate>
+          <div class="for-card__icon">&#128170;</div>
+          <div>
+            <strong>Career Changers (16-24)</strong>
+            <p>Tried something that didn't work? No judgment. Let's find what fits you.</p>
+          </div>
+        </div>
+        <div class="for-card" data-animate>
+          <div class="for-card__icon">&#128640;</div>
+          <div>
+            <strong>Aspiring Entrepreneurs</strong>
+            <p>Sales roles that teach you how business actually works — while earning points and income.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       WAITLIST
+  ═══════════════════════════════════════════════ -->
+  <section class="section section--navy" id="waitlist">
+    <div class="container waitlist-inner" data-animate>
+      <div class="section-label section-label--teal">Coming Soon</div>
+      <h2 class="section-title section-title--white">Be First in Line When <span class="text-gold">PathReady Launches</span></h2>
+      <p class="section-sub section-sub--light section-sub--center" style="margin-left: auto; margin-right: auto;">We're building the placement system now. Drop your info below and you'll be the first to know when PathReady is ready to place you.</p>
+
+      <div class="waitlist-form" id="waitlistForm">
+        <input type="text" id="wlName" placeholder="Full name" required>
+        <input type="email" id="wlEmail" placeholder="Email address" required>
+        <input type="tel" id="wlPhone" placeholder="Phone number (optional)">
+        <select id="wlStatus">
+          <option value="">I am a...</option>
+          <option value="hs-senior">High School Senior</option>
+          <option value="hs-grad">Recent HS Graduate</option>
+          <option value="college">College Student</option>
+          <option value="workforce">Already in the Workforce</option>
+          <option value="other">Other</option>
+        </select>
+        <button type="button" id="wlSubmitBtn" class="btn btn--teal btn--lg btn--full">
+          Join the Waitlist
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+        <p style="color: rgba(255,255,255,0.3); font-size: 0.75rem; margin-top: 4px;">No spam. We'll only reach out when PathReady is live.</p>
+      </div>
+
+      <div id="waitlistSuccess" style="display: none;">
+        <div style="width: 60px; height: 60px; background: var(--teal); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 1.5rem; color: #fff; font-weight: 700;">&#10003;</div>
+        <h3 style="font-family: 'Montserrat', sans-serif; font-weight: 800; color: #fff; margin-bottom: 10px;">You're on the list.</h3>
+        <p style="color: rgba(255,255,255,0.6); font-size: 1rem;">We'll reach out the moment PathReady is ready to place you. In the meantime — <a href="../quiz-landing.html" style="color: var(--teal); text-decoration: underline;">take the test</a> if you haven't already.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div>
+        <a href="../index.html" class="nav__logo nav__logo--footer">
+          <svg class="logo-icon" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="22" cy="22" r="21" fill="#0A1F44"/>
+            <circle cx="22" cy="22" r="20" stroke="#10B981" stroke-width="2"/>
+            <path d="M18 38 C18 34, 28 30, 26 26 C24 22, 16 20, 18 16 C20 12, 28 10, 26 6" stroke="#FFFFFF" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+            <path d="M18 38 C18 34, 28 30, 26 26 C24 22, 16 20, 18 16 C20 12, 28 10, 26 6" stroke="#E11D48" stroke-width="0.8" stroke-linecap="round" stroke-dasharray="2.5 3" fill="none"/>
+          </svg>
+          <div class="logo-text">
+            <span class="logo-wordmark"><span class="lc-t">T</span><span class="lc-r">R</span><span class="lc-p">P</span><span class="lc-s">S</span><span class="lc-h">H</span></span>
+            <span class="logo-tagline">The Right Path Starts Here</span>
+          </div>
+        </a>
+        <p class="footer__brand-desc">PathReady Staffing is part of the TRPSH ecosystem. Hands to guide you. Jobs to grow you.</p>
+      </div>
+      <div class="footer__links-row">
+        <a href="../index.html">Home</a>
+        <a href="../quiz-landing.html">Take The Test</a>
+        <a href="../partners.html">Free Tests</a>
+        <a href="../index.html#contact">Contact</a>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <div class="container footer__bottom-inner">
+        <p>&copy; 2026 TRPSH &mdash; The Right Path Starts Here. All rights reserved.</p>
+        <div class="footer__legal">
+          <a href="../privacy.html">Privacy Policy</a>
+          <a href="../terms.html">Terms of Use</a>
+          <a href="../accessibility.html">Accessibility</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+      /* ─── Mobile Nav ─── */
+      const hamburger = document.getElementById('hamburger');
+      const navLinks  = document.getElementById('navLinks');
+
+      hamburger.addEventListener('click', () => {
+        const isOpen = navLinks.classList.toggle('mobile-open');
+        hamburger.classList.toggle('open', isOpen);
+        hamburger.setAttribute('aria-label', isOpen ? 'Close navigation' : 'Open navigation menu');
+        document.body.style.overflow = isOpen ? 'hidden' : '';
+      });
+
+      navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          navLinks.classList.remove('mobile-open');
+          hamburger.classList.remove('open');
+          document.body.style.overflow = '';
+        });
+      });
+
+      /* ─── Smooth scroll ─── */
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', e => {
+          const target = document.querySelector(anchor.getAttribute('href'));
+          if (!target) return;
+          e.preventDefault();
+          const offset = 80;
+          const top = target.getBoundingClientRect().top + window.scrollY - offset;
+          window.scrollTo({ top, behavior: 'smooth' });
+        });
+      });
+
+      /* ─── Scroll Animations ─── */
+      const animObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            animObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+      document.querySelectorAll('[data-animate]').forEach((el, i) => {
+        el.style.transitionDelay = `${(i % 4) * 0.08}s`;
+        animObserver.observe(el);
+      });
+
+      /* ─── Waitlist Form ─── */
+      const wlBtn     = document.getElementById('wlSubmitBtn');
+      const wlForm    = document.getElementById('waitlistForm');
+      const wlSuccess = document.getElementById('waitlistSuccess');
+
+      if (wlBtn) {
+        wlBtn.addEventListener('click', () => {
+          const name   = document.getElementById('wlName');
+          const email  = document.getElementById('wlEmail');
+          const phone  = document.getElementById('wlPhone');
+          const status = document.getElementById('wlStatus');
+
+          // Reset errors
+          [name, email].forEach(f => f.classList.remove('error'));
+
+          let valid = true;
+          if (!name.value.trim()) { name.classList.add('error'); valid = false; }
+          if (!email.value.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
+            email.classList.add('error'); valid = false;
+          }
+
+          if (!valid) {
+            const firstError = wlForm.querySelector('.error');
+            if (firstError) firstError.focus();
+            return;
+          }
+
+          // Store in localStorage
+          const leads = JSON.parse(localStorage.getItem('pathready_waitlist') || '[]');
+          leads.push({
+            name: name.value.trim(),
+            email: email.value.trim(),
+            phone: phone.value.trim(),
+            status: status.value,
+            date: new Date().toISOString()
+          });
+          localStorage.setItem('pathready_waitlist', JSON.stringify(leads));
+
+          wlBtn.textContent = 'Joining...';
+          wlBtn.disabled = true;
+
+          setTimeout(() => {
+            wlForm.style.display = 'none';
+            wlSuccess.style.display = 'block';
+          }, 800);
+        });
+
+        // Clear errors on input
+        document.querySelectorAll('input, select').forEach(field => {
+          field.addEventListener('input', () => field.classList.remove('error'));
+        });
+      }
+
+    });
+  </script>
+</body>
+</html>
